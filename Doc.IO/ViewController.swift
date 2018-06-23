@@ -19,7 +19,7 @@ class ViewController: NSViewController {
 		//self.view.layer?.backgroundColor = NSColor (red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0).cgColor
 		
 		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
-		NSApp.delegate
+		//NSApp.delegate
 		Swift.print ("Loaded")
 	}
 
@@ -29,6 +29,7 @@ class ViewController: NSViewController {
 		}
 	}
 
-
+	@IBOutlet var editorView: NSTextView!
+	
 }
 

@@ -23,6 +23,7 @@
 		A88BF4AA20DE57F000938550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A88BF4AC20DE57F000938550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A88BF4AD20DE57F000938550 /* Doc_IO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Doc_IO.entitlements; sourceTree = "<group>"; };
+		A88BF4D120DEBE3000938550 /* Doc.IO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Doc.IO.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		A88BF4A020DE57E600938550 /* Doc.IO */ = {
 			isa = PBXGroup;
 			children = (
+				A88BF4D120DEBE3000938550 /* Doc.IO.entitlements */,
 				A88BF4A120DE57E600938550 /* AppDelegate.swift */,
 				A88BF4A320DE57E600938550 /* ViewController.swift */,
 				A88BF4A520DE57E600938550 /* Document.swift */,
@@ -98,6 +100,11 @@
 				TargetAttributes = {
 					A88BF49D20DE57E600938550 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -273,7 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Doc.IO/Doc_IO.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Doc.IO/Doc.IO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6B4P7WAZGB;
@@ -292,7 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Doc.IO/Doc_IO.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Doc.IO/Doc.IO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6B4P7WAZGB;
