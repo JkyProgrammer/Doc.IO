@@ -11,11 +11,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Doc.IO" id="1Xt-HY-uBw">
+                            <menuItem title="Quantum" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Doc.IO" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Quantum" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Doc.IO" id="5kV-Vb-QxS">
+                                        <menuItem title="About Quantum" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -29,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Doc.IO" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Quantum" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -47,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Doc.IO" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Quantum" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -660,7 +660,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Doc.IO Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Quantum Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -674,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Doc_IO" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Quantum" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" sceneMemberID="viewController">
-                    <window key="window" title="Doc.IO" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="Ckk-yw-fiv">
+                    <window key="window" title="Quantum" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="526" y="428" width="480" height="270"/>
@@ -705,7 +705,7 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="Doc_IO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="Quantum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -713,15 +713,15 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cos-qN-ydc">
                                 <rect key="frame" x="20" y="34" width="920" height="457"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xn6-YF-3ps">
-                                    <rect key="frame" x="1" y="1" width="918" height="455"/>
+                                    <rect key="frame" x="1" y="1" width="903" height="455"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView verticallyResizable="YES" usesFontPanel="YES" findStyle="bar" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="h7h-5E-z44">
-                                            <rect key="frame" x="0.0" y="0.0" width="455" height="455"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="440" height="455"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="minSize" width="455" height="455"/>
+                                            <size key="minSize" width="440" height="455"/>
                                             <size key="maxSize" width="920" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Loading Document...">
@@ -745,7 +745,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="ciW-da-oOt">
-                                    <rect key="frame" x="903" y="1" width="16" height="455"/>
+                                    <rect key="frame" x="904" y="1" width="15" height="455"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
