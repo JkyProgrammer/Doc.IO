@@ -53,7 +53,7 @@ class Document: NSDocument {
 	}
 	
 	override func saveAs(_ sender: Any?) {
-		let sp = NSSavePanel (contentRect: NSRect (x: 0, y: 0, width: 300, height: 200), styleMask: .docModalWindow, backing: .buffered, defer: false)
+		let sp = NSSavePanel ()
 		sp.title = "Save File"
 		sp.canCreateDirectories = true
 		sp.nameFieldStringValue = self.displayName
@@ -61,6 +61,7 @@ class Document: NSDocument {
 		//self.windowControllers[0].contentViewController?.presentViewControllerAsModalWindow(sp)
 		if (sp.runModal() == NSApplication.ModalResponse.OK) {
 			self.fileURL = sp.url
+            self.displayName = sp.nameFieldStringValue
 		}
 		Swift.print ("Saving...")
 	}

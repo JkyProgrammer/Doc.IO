@@ -713,34 +713,39 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cos-qN-ydc">
                                 <rect key="frame" x="20" y="34" width="920" height="457"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xn6-YF-3ps">
-                                    <rect key="frame" x="1" y="1" width="903" height="455"/>
+                                    <rect key="frame" x="1" y="1" width="918" height="455"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="h7h-5E-z44">
-                                            <rect key="frame" x="0.0" y="0.0" width="903" height="455"/>
+                                        <textView verticallyResizable="YES" usesFontPanel="YES" findStyle="bar" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="h7h-5E-z44">
+                                            <rect key="frame" x="0.0" y="0.0" width="455" height="455"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="minSize" width="903" height="455"/>
-                                            <size key="maxSize" width="903" height="10000000"/>
+                                            <size key="minSize" width="455" height="455"/>
+                                            <size key="maxSize" width="920" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Loading Document...">
                                                     <attributes>
-                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <color key="NSColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
+                                                        <font key="NSFont" size="16" name="Helvetica"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="insertionPointColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <allowedInputSourceLocales>
+                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                            </allowedInputSourceLocales>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="jNy-Y4-j6k">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <rect key="frame" x="-100" y="-100" width="918" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ciW-da-oOt">
-                                    <rect key="frame" x="904" y="1" width="15" height="455"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="ciW-da-oOt">
+                                    <rect key="frame" x="903" y="1" width="16" height="455"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

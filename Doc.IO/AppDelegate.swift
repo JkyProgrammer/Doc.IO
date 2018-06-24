@@ -10,11 +10,6 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-	@IBAction func saveDocument(_ sender: Any) {
-		NSApp.orderedDocuments[0].save(sender)
-	}
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		// Insert code here to initialize your application
