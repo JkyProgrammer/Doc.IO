@@ -551,6 +551,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <userDefaultsController id="ulQ-bN-tHp"/>
             </objects>
             <point key="canvasLocation" x="75" y="876"/>
         </scene>

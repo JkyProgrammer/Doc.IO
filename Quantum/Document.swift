@@ -32,7 +32,6 @@ class Document: NSDocument {
 		//throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
 		let data = (mainViewController.editorView.string).data(using: String.Encoding.ascii)
 		if (data != nil) {
-			Swift.print ("saved document")
 			return data!
 		}
 		return Data()
@@ -53,7 +52,9 @@ class Document: NSDocument {
 				saveAs(nil)
 			} else {
 				try string.write(to: self.fileURL!, atomically: false, encoding: .utf8)
-				self.updateChangeCount(.changeAutosaved)
+				self.updateChangeCount(withToken: self.changeCountToken(for: NSDocument.SaveOperationType.saveOperation), for: NSDocument.SaveOperationType.saveOperation)
+				//self.windowControllers[0].setDocumentEdited(false)
+				Swift.print ("Saving...")
 			}
 		} catch {
 			
@@ -72,7 +73,7 @@ class Document: NSDocument {
 			self.fileURL = sp.url
             self.displayName = sp.nameFieldStringValue
 		}
-		Swift.print ("Saving...")
+		Swift.print ("Saving as...")
 	}
 	
 	var textValue = ""

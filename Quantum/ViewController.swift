@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -32,6 +32,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		//self.view.layer?.backgroundColor = NSColor (red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0).cgColor
 		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
 		//NSApp.delegate
+		editorView.delegate = self
 		Swift.print ("Loaded")
 	}
 
@@ -58,6 +59,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	func tableView(_ tableView: NSTableView, dataCellFor tableColumn: NSTableColumn?, row: Int) -> NSCell? {
 		let cell = NSTextFieldCell (textCell: lineNumbers[row])
 		return cell
+	}
+	
+	func textDidChange(_ notification: Notification) {
+		(self.view.window?.windowController?.document as! Document).updateChangeCount(NSDocument.ChangeType.changeDone)
 	}
 	
 }
