@@ -30,9 +30,18 @@ class Document: NSDocument {
 		// Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
 		// You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
 		//throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-		let data = ((self.windowControllers[0].contentViewController as! ViewController).editorView.string).data(using: String.Encoding.ascii)
-		Swift.print ("saved document")
-		return data!
+		let data = (mainViewController.editorView.string).data(using: String.Encoding.ascii)
+		if (data != nil) {
+			Swift.print ("saved document")
+			return data!
+		}
+		return Data()
+	}
+	
+	var mainViewController:ViewController {
+		get {
+			return (self.windowControllers[0].contentViewController as! ViewController)
+		}
 	}
 	
 	override func save(_ sender: Any?) {
@@ -57,7 +66,7 @@ class Document: NSDocument {
 		sp.title = "Save File"
 		sp.canCreateDirectories = true
 		sp.nameFieldStringValue = self.displayName
-		sp.allowedFileTypes = ["dio", "txt"]
+		sp.allowedFileTypes = ["quantum", "txt"]
 		//self.windowControllers[0].contentViewController?.presentViewControllerAsModalWindow(sp)
 		if (sp.runModal() == NSApplication.ModalResponse.OK) {
 			self.fileURL = sp.url
