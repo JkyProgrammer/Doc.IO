@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+//let sstoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
 class Document: NSDocument {
 
 	override init() {
@@ -21,7 +21,7 @@ class Document: NSDocument {
 
 	override func makeWindowControllers() {
 		// Returns the Storyboard that contains your Document window.
-		let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
+		let windowController = sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
 		((windowController.contentViewController as! ViewController).editorView.string) = textValue
 		self.addWindowController(windowController)
 	}
@@ -67,7 +67,7 @@ class Document: NSDocument {
 		sp.title = "Save File"
 		sp.canCreateDirectories = true
 		sp.nameFieldStringValue = self.displayName
-		sp.allowedFileTypes = ["quantum", "txt"]
+		sp.allowedFileTypes = []
 		//self.windowControllers[0].contentViewController?.presentViewControllerAsModalWindow(sp)
 		if (sp.runModal() == NSApplication.ModalResponse.OK) {
 			self.fileURL = sp.url

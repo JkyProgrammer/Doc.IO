@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+let sstoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate {
 
 	override func viewDidLoad() {
@@ -42,20 +42,26 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		}
 	}
 	
-	@IBOutlet var editorViewHolder: NSView!
+	@IBOutlet var editorViewHolder: NSScrollView!
+	@IBOutlet var modeSegment: NSSegmentedControl!
 	
-	//var editorView: NSTextView!
+	@IBAction func documentOptionsOpened(_ sender: Any) {
+		let ovc = (sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OVC")) as! NSViewController)
+		self.presentViewControllerAsModalWindow(ovc)
+		//ovc.showWindow(self)
+	}
+	
+	@IBAction func modeSegmentChanged(_ sender: Any) {
+	}
 	
 	@IBOutlet var editorView: NSTextView!
 	
 	var lineNumbers:[String] = ["1","2","3"]
 	
-	
-	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		return lineNumbers.count
 	}
-//
+
 	func tableView(_ tableView: NSTableView, dataCellFor tableColumn: NSTableColumn?, row: Int) -> NSCell? {
 		let cell = NSTextFieldCell (textCell: lineNumbers[row])
 		return cell

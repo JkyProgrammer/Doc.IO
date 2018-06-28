@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A85B367920DFD467006556AF /* Quantum Icon-02.icns in Resources */ = {isa = PBXBuildFile; fileRef = A85B367820DFD467006556AF /* Quantum Icon-02.icns */; };
+		A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887732120E4B9D4007B38A1 /* OptionsViewController.swift */; };
 		A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A120DE57E600938550 /* AppDelegate.swift */; };
 		A88BF4A420DE57E600938550 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A320DE57E600938550 /* ViewController.swift */; };
 		A88BF4A620DE57E600938550 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A520DE57E600938550 /* Document.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		A85B367820DFD467006556AF /* Quantum Icon-02.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Quantum Icon-02.icns"; sourceTree = "<group>"; };
+		A887732120E4B9D4007B38A1 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		A88BF49E20DE57E600938550 /* Quantum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quantum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88BF4A120DE57E600938550 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A88BF4A320DE57E600938550 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				A88BF4D120DEBE3000938550 /* Quantum.entitlements */,
 				A88BF4A120DE57E600938550 /* AppDelegate.swift */,
 				A88BF4A320DE57E600938550 /* ViewController.swift */,
+				A887732120E4B9D4007B38A1 /* OptionsViewController.swift */,
 				A88BF4A520DE57E600938550 /* Document.swift */,
 				A88BF4A720DE57F000938550 /* Assets.xcassets */,
 				A88BF4A920DE57F000938550 /* Main.storyboard */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A88BF4A420DE57E600938550 /* ViewController.swift in Sources */,
+				A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,
 				A88BF4A620DE57E600938550 /* Document.swift in Sources */,
 			);
