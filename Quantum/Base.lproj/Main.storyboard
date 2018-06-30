@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14019"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -185,7 +187,8 @@
                                                             <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="HOh-sY-3ay"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="buJ-ug-pKt">
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="f" id="buJ-ug-pKt">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="U76-nv-p5D"/>
                                                         </connections>
@@ -331,9 +334,20 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
+                            <menuItem title="Tools" id="SU6-Ok-1kx">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Format" id="GEO-Iw-cKr"/>
+                                <menu key="submenu" title="Tools" id="e6d-C3-EZ3">
+                                    <items>
+                                        <menuItem title="Run Build Script" keyEquivalent="b" id="wtw-NK-0eR"/>
+                                        <menuItem title="Run Execute Command" keyEquivalent="e" id="EN2-dH-t0u"/>
+                                        <menuItem title="Document Options..." keyEquivalent="," id="Rzf-FG-vpU">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <segue destination="f1r-ha-Qi8" kind="modal" id="iYH-kv-rqK"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -404,7 +418,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="526" y="428" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
                         <connections>
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="98r-iN-zZc"/>
                         </connections>
@@ -414,6 +428,70 @@
                     </connections>
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <touchBar id="K2f-dB-rRb">
+                    <touchBarItems>
+                        <touchBarItem id="oCd-7C-bb4">
+                            <viewController key="viewController" id="OPQ-hE-L6O">
+                                <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="13V-rp-7sH">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="140" id="A2J-Ii-Uhe"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Document Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L3a-sG-lkG">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                    </buttonCell>
+                                </button>
+                            </viewController>
+                            <size key="designTimeSize" width="140" height="30"/>
+                        </touchBarItem>
+                        <touchBarItem id="bys-bg-Yb2">
+                            <viewController key="viewController" id="wMz-cd-N11">
+                                <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQk-qR-UpT">
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="54" id="BUR-30-AQy"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Build" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CKr-1n-VE5">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                    </buttonCell>
+                                </button>
+                            </viewController>
+                            <size key="designTimeSize" width="54" height="30"/>
+                        </touchBarItem>
+                        <touchBarItem id="TVs-vk-9bl">
+                            <viewController key="viewController" id="eRL-qp-2Mv">
+                                <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="72w-TY-e5R">
+                                    <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="81" id="SIM-dO-EWJ"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Execution" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fan-uq-DTa">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                    </buttonCell>
+                                </button>
+                            </viewController>
+                            <size key="designTimeSize" width="81" height="30"/>
+                        </touchBarItem>
+                        <sliderTouchBarItem valueAccessoryWidth="33" label="Text Size" id="aDy-AP-EnU">
+                            <sliderAccessory key="minimumValueAccessory" id="sD7-NI-8g2">
+                                <sliderAccessoryBehavior key="behavior" id="SUU-jC-dA1"/>
+                            </sliderAccessory>
+                            <sliderAccessory key="maximumValueAccessory" id="Un3-uX-FRo">
+                                <sliderAccessoryBehavior key="behavior" id="Xcl-XB-wWJ"/>
+                            </sliderAccessory>
+                            <slider key="slider" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JFX-WD-frd">
+                                <rect key="frame" x="-6" y="0.0" width="28" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4wd-U0-WtV"/>
+                                </constraints>
+                                <sliderCell key="cell" state="on" alignment="left" minValue="10" maxValue="40" doubleValue="14.137931034482758" tickMarkPosition="above" numberOfTickMarks="30" allowsTickMarkValuesOnly="YES" sliderType="linear" id="IVd-d6-rHK"/>
+                            </slider>
+                        </sliderTouchBarItem>
+                    </touchBarItems>
+                </touchBar>
             </objects>
             <point key="canvasLocation" x="75" y="265"/>
         </scene>
@@ -702,15 +780,15 @@ Gw
                             <scrollView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="Cos-qN-ydc" userLabel="Scroll View">
                                 <rect key="frame" x="20" y="20" width="1042" height="471"/>
                                 <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" id="xn6-YF-3ps">
-                                    <rect key="frame" x="1" y="1" width="1040" height="469"/>
+                                    <rect key="frame" x="1" y="1" width="1025" height="469"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="h7h-5E-z44">
-                                            <rect key="frame" x="0.0" y="0.0" width="1040" height="469"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1025" height="469"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="minSize" width="1040" height="469"/>
+                                            <size key="minSize" width="1025" height="469"/>
                                             <size key="maxSize" width="10000000" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Loading Document...">
@@ -735,7 +813,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="ciW-da-oOt">
-                                    <rect key="frame" x="1025" y="1" width="16" height="469"/>
+                                    <rect key="frame" x="1026" y="1" width="15" height="469"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -751,12 +829,12 @@ Gw
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tnW-Zr-ufI" secondAttribute="trailing" constant="20" symbolic="YES" id="1H7-qj-DC3"/>
-                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" symbolic="YES" id="GZE-fq-4wk"/>
-                            <constraint firstAttribute="bottom" secondItem="Cos-qN-ydc" secondAttribute="bottom" constant="20" symbolic="YES" id="Gb8-qm-H7n"/>
-                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="trailing" secondItem="Cos-qN-ydc" secondAttribute="trailing" id="GzO-pT-mol"/>
-                            <constraint firstItem="Cos-qN-ydc" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" symbolic="YES" id="HXh-Sy-ZJZ"/>
-                            <constraint firstItem="Cos-qN-ydc" firstAttribute="top" secondItem="tnW-Zr-ufI" secondAttribute="bottom" constant="8" id="PnE-SK-htW"/>
+                            <constraint firstAttribute="bottom" secondItem="Cos-qN-ydc" secondAttribute="bottom" constant="20" symbolic="YES" id="2tr-FH-qYs"/>
+                            <constraint firstAttribute="trailing" secondItem="tnW-Zr-ufI" secondAttribute="trailing" constant="20" symbolic="YES" id="3ah-C3-hhQ"/>
+                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="trailing" secondItem="Cos-qN-ydc" secondAttribute="trailing" id="4qS-qf-JwA"/>
+                            <constraint firstItem="Cos-qN-ydc" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" symbolic="YES" id="BR1-Th-ECT"/>
+                            <constraint firstItem="Cos-qN-ydc" firstAttribute="top" secondItem="tnW-Zr-ufI" secondAttribute="bottom" constant="8" id="Jgi-8P-kp5"/>
+                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" symbolic="YES" id="rAD-Bk-J3t"/>
                         </constraints>
                     </view>
                     <connections>
@@ -810,4 +888,7 @@ Gw
             <point key="canvasLocation" x="75" y="876"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iYH-kv-rqK"/>
+    </inferredMetricsTieBreakers>
 </document>
