@@ -67,7 +67,8 @@ class Document: NSDocument {
 		sp.title = "Save File"
 		sp.canCreateDirectories = true
 		sp.nameFieldStringValue = self.displayName
-		sp.allowedFileTypes = []
+		sp.allowedFileTypes = ["quantum"]
+		sp.allowsOtherFileTypes = true
 		//self.windowControllers[0].contentViewController?.presentViewControllerAsModalWindow(sp)
 		if (sp.runModal() == NSApplication.ModalResponse.OK) {
 			self.fileURL = sp.url

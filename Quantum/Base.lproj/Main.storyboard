@@ -336,7 +336,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Tools" id="e6d-C3-EZ3">
                                     <items>
-                                        <menuItem title="Run Build Script" keyEquivalent="b" id="wtw-NK-0eR"/>
+                                        <menuItem title="Run Build Script" keyEquivalent="b" id="wtw-NK-0eR">
+                                            <connections>
+                                                <action selector="ting:" target="Ady-hI-5gd" id="UDh-PU-1I0"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Run Execute Command" keyEquivalent="e" id="EN2-dH-t0u"/>
                                         <menuItem title="Document Options..." keyEquivalent="," id="Rzf-FG-vpU">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
@@ -427,7 +431,7 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="336"/>
+            <point key="canvasLocation" x="-232" y="270"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="0os-PN-fK5">
@@ -714,15 +718,15 @@ Gw
                             <scrollView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="Cos-qN-ydc" userLabel="Scroll View">
                                 <rect key="frame" x="20" y="20" width="1042" height="471"/>
                                 <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" id="xn6-YF-3ps">
-                                    <rect key="frame" x="1" y="1" width="1040" height="469"/>
+                                    <rect key="frame" x="1" y="1" width="1025" height="469"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="h7h-5E-z44">
-                                            <rect key="frame" x="0.0" y="0.0" width="1040" height="469"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1025" height="469"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="minSize" width="1040" height="469"/>
+                                            <size key="minSize" width="1025" height="469"/>
                                             <size key="maxSize" width="10000000" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Loading Document...">
@@ -747,7 +751,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="ciW-da-oOt">
-                                    <rect key="frame" x="1025" y="1" width="16" height="469"/>
+                                    <rect key="frame" x="1026" y="1" width="15" height="469"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
