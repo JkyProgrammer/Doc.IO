@@ -33,7 +33,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
 		//NSApp.delegate
 		editorView.delegate = self
-        editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16), forKey: NSAttributedStringKey.font)
+        editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
         editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
         editorView.isAutomaticQuoteSubstitutionEnabled = false;
 		Swift.print ("Loaded")
