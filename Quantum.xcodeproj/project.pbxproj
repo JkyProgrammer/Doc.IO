@@ -14,6 +14,7 @@
 		A88BF4A620DE57E600938550 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A520DE57E600938550 /* Document.swift */; };
 		A88BF4A820DE57F000938550 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88BF4A720DE57F000938550 /* Assets.xcassets */; };
 		A88BF4AB20DE57F000938550 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A88BF4A920DE57F000938550 /* Main.storyboard */; };
+		A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FA1A5D20E7E8FF00F8F96D /* BuildScriptCallViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A88BF4AA20DE57F000938550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A88BF4AC20DE57F000938550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A88BF4D120DEBE3000938550 /* Quantum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quantum.entitlements; sourceTree = "<group>"; };
+		A8FA1A5D20E7E8FF00F8F96D /* BuildScriptCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildScriptCallViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				A88BF4A520DE57E600938550 /* Document.swift */,
 				A88BF4A720DE57F000938550 /* Assets.xcassets */,
 				A88BF4A920DE57F000938550 /* Main.storyboard */,
+				A8FA1A5D20E7E8FF00F8F96D /* BuildScriptCallViewController.swift */,
 				A85B367820DFD467006556AF /* Quantum Icon-02.icns */,
 				A88BF4AC20DE57F000938550 /* Info.plist */,
 			);
@@ -156,6 +159,7 @@
 			files = (
 				A88BF4A420DE57E600938550 /* ViewController.swift in Sources */,
 				A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */,
+				A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,
 				A88BF4A620DE57E600938550 /* Document.swift in Sources */,
 			);

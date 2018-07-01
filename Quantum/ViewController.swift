@@ -46,16 +46,12 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	}
 	
 	@IBOutlet var editorViewHolder: NSScrollView!
-	@IBOutlet var modeSegment: NSSegmentedControl!
 	
-	@IBAction func documentOptionsOpened(_ sender: Any) {
-		let ovc = (sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OVC")) as! NSViewController)
-		self.presentViewControllerAsModalWindow(ovc)
-		//ovc.showWindow(self)
-	}
-	
-	@IBAction func modeSegmentChanged(_ sender: Any) {
-	}
+//	@IBAction func documentOptionsOpened(_ sender: Any) {
+//		let ovc = (sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OVC")) as! NSViewController)
+//		self.presentViewControllerAsModalWindow(ovc)
+//		//ovc.showWindow(self)
+//	}
 	
 	@IBOutlet var editorView: NSTextView!
 	
