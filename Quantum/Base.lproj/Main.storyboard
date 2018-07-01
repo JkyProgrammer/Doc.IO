@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14019"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--BuildScriptCall-->
@@ -430,8 +432,7 @@ Gw
                                     <items>
                                         <menuItem title="Run Build Script" enabled="NO" keyEquivalent="b" id="wtw-NK-0eR">
                                             <connections>
-                                                <action selector="ting:" target="Ady-hI-5gd" id="UDh-PU-1I0"/>
-                                                <segue destination="v3q-cP-d9F" kind="modal" id="wLp-os-Zlk"/>
+                                                <segue destination="v3q-cP-d9F" kind="modal" identifier="callBuildScript" id="wLp-os-Zlk"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Run Execute Command" enabled="NO" keyEquivalent="e" id="EN2-dH-t0u"/>
@@ -853,6 +854,99 @@ Gw
                                         <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="h7h-5E-z44">
                                             <rect key="frame" x="0.0" y="0.0" width="1025" height="469"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <touchBar key="touchBar" id="L36-rx-ZhF">
+                                                <touchBarItems>
+                                                    <touchBarItem id="qRS-Ou-iC0">
+                                                        <viewController key="viewController" id="G51-pp-jtJ">
+                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fsd-gZ-4Qm">
+                                                                <rect key="frame" x="6" y="-4" width="72" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="19" id="LXh-Li-HLO"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="lZ3-GZ-yNZ"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qvt-3X-0Li">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="performClick:" target="tnW-Zr-ufI" id="hc3-GR-HWV"/>
+                                                                </connections>
+                                                            </button>
+                                                        </viewController>
+                                                        <size key="designTimeSize" width="72" height="30"/>
+                                                    </touchBarItem>
+                                                    <touchBarItem id="dVe-OM-9Y8">
+                                                        <viewController key="viewController" id="APo-bq-7PT">
+                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uNR-Fd-tsg">
+                                                                <rect key="frame" x="6" y="-4" width="72" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="19" id="CC0-ED-nqR"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="nnE-gY-0o5"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="push" title="Build" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mMg-bD-sOW">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="runBuildScriptFromTouchBar:" target="5gI-5U-AMq" id="9gJ-ze-dQc"/>
+                                                                </connections>
+                                                            </button>
+                                                        </viewController>
+                                                    </touchBarItem>
+                                                    <touchBarItem id="mZw-Kn-uoX">
+                                                        <viewController key="viewController" id="kxO-na-o1i">
+                                                            <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gEk-Hm-EVG">
+                                                                <rect key="frame" x="6" y="-4" width="72" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="B9J-0v-10S"/>
+                                                                    <constraint firstAttribute="height" constant="19" id="Ovk-jz-gHJ"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="push" title="Execute" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hWj-JV-tHA">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="runExecuteScriptFromTouchBar:" target="5gI-5U-AMq" id="3NT-Eg-HzW"/>
+                                                                </connections>
+                                                            </button>
+                                                        </viewController>
+                                                        <size key="designTimeSize" width="72" height="30"/>
+                                                    </touchBarItem>
+                                                    <touchBarItem id="hAA-c5-tSj">
+                                                        <viewController key="viewController" id="711-40-GHc">
+                                                            <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K7i-s0-Vnj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="96" height="24"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Line: 1 of 1" drawsBackground="YES" id="KWL-Jw-Huv">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </viewController>
+                                                        <size key="designTimeSize" width="96" height="24"/>
+                                                    </touchBarItem>
+                                                    <touchBarItem id="OMv-Mo-zHX">
+                                                        <viewController key="viewController" id="j3l-mH-5jV">
+                                                            <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="At0-oW-LV1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="24"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Column: 0" drawsBackground="YES" id="b5n-kB-72D">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </viewController>
+                                                        <size key="designTimeSize" width="79" height="24"/>
+                                                    </touchBarItem>
+                                                    <touchBarPopoverItem collapsedRepresentationLabel="Tools" id="VFg-qG-2Vu">
+                                                        <touchBar key="popoverTouchBar" id="L1U-c8-bal">
+                                                            <nil name="touchBarItems"/>
+                                                        </touchBar>
+                                                    </touchBarPopoverItem>
+                                                </touchBarItems>
+                                            </touchBar>
                                             <color key="textColor" red="0.79209560160000003" green="0.79219138619999996" blue="0.79206293819999996" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <size key="minSize" width="1025" height="469"/>
@@ -894,19 +988,49 @@ Gw
                                     <segue destination="f1r-ha-Qi8" kind="modal" id="IPy-vf-BlY"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1WR-Vf-R7P">
+                                <rect key="frame" x="18" y="501" width="91" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="8bt-3O-bVV"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Line: 1 of 1" id="thb-xY-MzH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="clq-Iu-dBs">
+                                <rect key="frame" x="113" y="501" width="115" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="g6s-n5-OZt"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Column: 0" id="qDL-VV-VZn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Cos-qN-ydc" secondAttribute="bottom" constant="20" symbolic="YES" id="2tr-FH-qYs"/>
-                            <constraint firstAttribute="trailing" secondItem="tnW-Zr-ufI" secondAttribute="trailing" constant="20" symbolic="YES" id="3ah-C3-hhQ"/>
-                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="trailing" secondItem="Cos-qN-ydc" secondAttribute="trailing" id="4qS-qf-JwA"/>
-                            <constraint firstItem="Cos-qN-ydc" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" symbolic="YES" id="BR1-Th-ECT"/>
-                            <constraint firstItem="Cos-qN-ydc" firstAttribute="top" secondItem="tnW-Zr-ufI" secondAttribute="bottom" constant="8" id="Jgi-8P-kp5"/>
-                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" symbolic="YES" id="rAD-Bk-J3t"/>
+                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="trailing" secondItem="Cos-qN-ydc" secondAttribute="trailing" id="HKp-FY-7Oi"/>
+                            <constraint firstAttribute="bottom" secondItem="Cos-qN-ydc" secondAttribute="bottom" constant="20" symbolic="YES" id="Ioz-Yu-YYe"/>
+                            <constraint firstItem="1WR-Vf-R7P" firstAttribute="leading" secondItem="Cos-qN-ydc" secondAttribute="leading" id="O1P-X7-i1y"/>
+                            <constraint firstItem="tnW-Zr-ufI" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" symbolic="YES" id="Pm5-KB-bD1"/>
+                            <constraint firstItem="clq-Iu-dBs" firstAttribute="centerY" secondItem="tnW-Zr-ufI" secondAttribute="centerY" id="Vcb-aZ-phd"/>
+                            <constraint firstItem="clq-Iu-dBs" firstAttribute="leading" secondItem="1WR-Vf-R7P" secondAttribute="trailing" constant="8" symbolic="YES" id="WTg-4x-9G8"/>
+                            <constraint firstItem="1WR-Vf-R7P" firstAttribute="baseline" secondItem="clq-Iu-dBs" secondAttribute="baseline" id="Xyd-w6-RkX"/>
+                            <constraint firstItem="1WR-Vf-R7P" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" symbolic="YES" id="jBp-uf-Ipb"/>
+                            <constraint firstItem="Cos-qN-ydc" firstAttribute="top" secondItem="tnW-Zr-ufI" secondAttribute="bottom" constant="8" id="yI5-7Y-iNd"/>
+                            <constraint firstAttribute="trailing" secondItem="tnW-Zr-ufI" secondAttribute="trailing" constant="20" symbolic="YES" id="zPI-Py-u12"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="columnLabel" destination="clq-Iu-dBs" id="2Ye-Dm-tv6"/>
                         <outlet property="editorView" destination="h7h-5E-z44" id="ZKh-tE-2Qz"/>
                         <outlet property="editorViewHolder" destination="Cos-qN-ydc" id="M4S-kO-Gkl"/>
+                        <outlet property="lineLabel" destination="1WR-Vf-R7P" id="SMW-ap-vcW"/>
+                        <outlet property="touchBarColumnLabel" destination="OMv-Mo-zHX" id="4SW-63-R5q"/>
+                        <outlet property="touchBarLineLabel" destination="hAA-c5-tSj" id="aAy-vQ-bV1"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -919,6 +1043,6 @@ Gw
         <image name="NSTouchBarFolderTemplate" width="22" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iYH-kv-rqK"/>
+        <segue reference="IPy-vf-BlY"/>
     </inferredMetricsTieBreakers>
 </document>

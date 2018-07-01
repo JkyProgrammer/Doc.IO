@@ -45,7 +45,7 @@ class Document: NSDocument {
 	
 	override func save(_ sender: Any?) {
 		let string = ((self.windowControllers[0].contentViewController as! ViewController).editorView.string)//.data(using: String.Encoding.ascii)
-		Swift.print (string)
+		//Swift.print (string)
 		//self.fileURL
 		do {
 			if (self.fileURL == nil) {

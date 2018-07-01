@@ -36,6 +36,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
         editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
         editorView.isAutomaticQuoteSubstitutionEnabled = false;
+		
+		updateColumnAndLineLabels()
 		Swift.print ("Loaded")
 	}
 
@@ -44,6 +46,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		// Update the view, if already loaded.
 		}
 	}
+	
 	
 	@IBOutlet var editorViewHolder: NSScrollView!
 	
@@ -68,6 +71,57 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	
 	func textDidChange(_ notification: Notification) {
 		(self.view.window?.windowController?.document as! Document).updateChangeCount(NSDocument.ChangeType.changeDone)
+		updateColumnAndLineLabels()
 	}
+	
+	func textViewDidChangeSelection(_ notification: Notification) {
+		updateColumnAndLineLabels()
+	}
+	
+	func updateColumnAndLineLabels () {
+		let realCursorLoc = editorView.selectedRanges[0].rangeValue.location
+		//var lnStarts:[Int] = []
+		var lineLoc = 0
+		var colLoc = 0
+		var charLoc = 0
+		for c in editorView.string {
+			if (c == "\n") {
+				if (realCursorLoc > charLoc) {
+					colLoc = 0
+					lineLoc += 1
+				} else if (realCursorLoc == charLoc) {
+					break
+				}
+			} else {
+				if (realCursorLoc > charLoc) {
+					colLoc += 1
+				} else if (realCursorLoc == charLoc) {
+					break
+				}
+			}
+			charLoc += 1
+		}
+		let lineString = "Line: \(lineLoc+1) of \(editorView.string.components(separatedBy: "\n").count)"
+		let columnString = "Column: \(colLoc)"
+		
+		lineLabel.stringValue = lineString
+		//touchBarLineLabel.stringValue = lineString
+		
+		columnLabel.stringValue = columnString
+		//touchBarColumnLabel.stringValue = columnString
+	}
+	
+	@IBAction func runBuildScriptFromTouchBar(_ sender: Any) {
+		self.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "callBuildScript"), sender: self)
+	}
+	
+	@IBAction func runExecuteScriptFromTouchBar(_ sender: Any) {
+	}
+	
+	@IBOutlet var lineLabel: NSTextField!
+	@IBOutlet var columnLabel: NSTextField!
+	
+	@IBOutlet var touchBarLineLabel: NSTextField!
+	@IBOutlet var touchBarColumnLabel: NSTextField!
 }
 
