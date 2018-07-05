@@ -13,7 +13,7 @@ class OptionsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		// Load all settings
-		let ad = NSApp.delegate as! AppDelegate
+		let ad = NSApp.orderedDocuments.first as! Document
 		
 		// Encoding
 		switch (ad.encoding) {
@@ -60,7 +60,7 @@ class OptionsViewController: NSViewController {
 	
 	@IBAction func save(_ sender: Any) {
 		// Write all settings
-		let ad = NSApp.delegate as! AppDelegate
+		let ad = NSApp.orderedDocuments.first as! Document
 		
 		// Encoding
 		switch (encodingSelector.selectedItem?.title) {

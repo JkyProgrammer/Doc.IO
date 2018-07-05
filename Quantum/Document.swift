@@ -32,8 +32,12 @@ class Document: NSDocument {
 		//throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
 		let data = (mainViewController.editorView.string).data(using: String.Encoding.ascii)
 		if (data != nil) {
+			// Write settings to storage
+			// Write
 			return data!
 		}
+		
+		
 		return Data()
 	}
 	
@@ -73,15 +77,71 @@ class Document: NSDocument {
 		if (sp.runModal() == NSApplication.ModalResponse.OK) {
 			self.fileURL = sp.url
             self.displayName = sp.nameFieldStringValue
+			Swift.print ("Saving as...")
+			save(self)
 		}
-		Swift.print ("Saving as...")
-        save(self)
 	}
 	
 	var textValue = ""
     
 	override func read(from data: Data, ofType typeName: String) throws {
 		textValue = String (data: data, encoding: .utf8)!
+		// Search storage for settings file
+		// Otherwise automatically generate settings from file type
+		
     }
+	
+	override func read(from url: URL, ofType typeName: String) throws {
+		if (false) {
+			// Read
+		} else {
+			// Detect
+			let ext = url.pathExtension
+			Swift.print(ext)
+			switch (ext) {
+			case "py":
+				self.language = "Python"
+				self.viewingMode = 1
+				break
+			case "java":
+				self.language = "Java"
+				self.viewingMode = 1
+				break
+			case "sh":
+				self.language = "Shell"
+				self.viewingMode = 1
+				break
+			case "bash":
+				self.language = "Shell"
+				self.viewingMode = 1
+				break
+			case "swift":
+				self.viewingMode = 1
+				break
+			case "c":
+				self.viewingMode = 1
+				break
+			case "cpp":
+				self.viewingMode = 1
+				break
+			case "cc":
+				self.viewingMode = 1
+				break
+			case "md":
+				self.viewingMode = 2
+				break
+			default:
+				self.viewingMode = 0
+			}
+		}
+	}
+	
+	var encoding:String.Encoding = .utf8
+	var viewingMode:Int = 0
+	var shouldHighlightSyntax:Bool = false
+	var language:String = "None"
+	var buildScriptPath:String = ""
+	var executionCommand:String = ""
+	var shouldLivePreviewMarkdown:Bool = false
 }
 

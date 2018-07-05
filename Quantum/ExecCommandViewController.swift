@@ -1,26 +1,26 @@
 //
-//  BuildScriptCallViewController.swift
+//  ExecCommandViewController.swift
 //  Quantum
 //
-//  Created by Javax on 30/06/2018.
+//  Created by Javax on 01/07/2018.
 //  Copyright © 2018 Javax Inc. All rights reserved.
 //
 
 import Cocoa
 
-class BuildScriptCallViewController: NSViewController {
-
+class ExecCommandViewController: NSViewController {
+	
 	let task = Process()
 	let pipe = Pipe()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		self.view.window?.title = "Run Build Script"
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.view.window?.title = "Execute Command"
+	}
 	
 	override func viewDidAppear() {
 		// Do view setup here.
-		let path = (NSApp.orderedDocuments as! Document).buildScriptPath
+		let path = (NSApp.orderedDocuments as! Document).executionCommand
 		if (path != nil && path != "") {
 			// Set the task parameters
 			if FileManager.default.fileExists(atPath: path) {
@@ -44,9 +44,9 @@ class BuildScriptCallViewController: NSViewController {
 					while (self.task.isRunning) {
 						let data = self.pipe.fileHandleForReading.readDataToEndOfFile()
 						let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-						self.perform(#selector (BuildScriptCallViewController.setText), on: main, with: output! as String, waitUntilDone: false)
+						self.perform(#selector (ExecCommandViewController.setText), on: main, with: output! as String, waitUntilDone: false)
 					}
-					self.perform(#selector (BuildScriptCallViewController.stopAnimating), on: main, with: nil, waitUntilDone: false)
+					self.perform(#selector (ExecCommandViewController.stopAnimating), on: main, with: nil, waitUntilDone: false)
 				}
 			} else {
 				setText(t: "Command executable not found.")
@@ -81,4 +81,5 @@ class BuildScriptCallViewController: NSViewController {
 		self.dismiss(sender)
 		//self.view.window?.close()
 	}
+	
 }

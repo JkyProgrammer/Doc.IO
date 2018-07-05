@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */; };
 		A85B367920DFD467006556AF /* Quantum Icon-02.icns in Resources */ = {isa = PBXBuildFile; fileRef = A85B367820DFD467006556AF /* Quantum Icon-02.icns */; };
 		A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887732120E4B9D4007B38A1 /* OptionsViewController.swift */; };
 		A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A120DE57E600938550 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecCommandViewController.swift; sourceTree = "<group>"; };
 		A85B367820DFD467006556AF /* Quantum Icon-02.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Quantum Icon-02.icns"; sourceTree = "<group>"; };
 		A887732120E4B9D4007B38A1 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		A88BF49E20DE57E600938550 /* Quantum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quantum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				A88BF4A720DE57F000938550 /* Assets.xcassets */,
 				A88BF4A920DE57F000938550 /* Main.storyboard */,
 				A8FA1A5D20E7E8FF00F8F96D /* BuildScriptCallViewController.swift */,
+				A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */,
 				A85B367820DFD467006556AF /* Quantum Icon-02.icns */,
 				A88BF4AC20DE57F000938550 /* Info.plist */,
 			);
@@ -160,6 +163,7 @@
 				A88BF4A420DE57E600938550 /* ViewController.swift in Sources */,
 				A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */,
 				A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */,
+				A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,
 				A88BF4A620DE57E600938550 /* Document.swift in Sources */,
 			);
@@ -307,7 +311,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.Javax-Inc.Doc-IO";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.Javax-Inc.Quantum";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -329,7 +333,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.Javax-Inc.Doc-IO";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.Javax-Inc.Quantum";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

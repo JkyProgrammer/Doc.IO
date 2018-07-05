@@ -116,6 +116,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	}
 	
 	@IBAction func runExecuteScriptFromTouchBar(_ sender: Any) {
+		self.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "execCommand"), sender: self)
 	}
 	
 	@IBOutlet var lineLabel: NSTextField!
