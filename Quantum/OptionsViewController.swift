@@ -30,6 +30,7 @@ class OptionsViewController: NSViewController {
 		
 		// Viewing mode
 		viewingModeSelector.selectSegment(withTag: ad.viewingMode)
+        
 		
 		// Syntax highlighting enabled
 		syntaxHighlightingEnabler.state = .off
@@ -95,6 +96,7 @@ class OptionsViewController: NSViewController {
 		
 		self.dismiss(self)
 		self.view.window?.close()
+        ad.mainViewController.updatePreviewView()
 	}
 	
 	@IBOutlet var encodingSelector: NSPopUpButton!

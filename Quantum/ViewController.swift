@@ -38,7 +38,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         editorView.isAutomaticQuoteSubstitutionEnabled = false;
 		
 		updateColumnAndLineLabels()
-		Swift.print ("Loaded")
+        updatePreviewView()
+        Swift.print ("Loaded window successfully")
 	}
 
 	override var representedObject: Any? {
@@ -50,11 +51,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	
 	@IBOutlet var editorViewHolder: NSScrollView!
 	
-//	@IBAction func documentOptionsOpened(_ sender: Any) {
-//		let ovc = (sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OVC")) as! NSViewController)
-//		self.presentViewControllerAsModalWindow(ovc)
-//		//ovc.showWindow(self)
-//	}
+    
+    var document:Document {
+        return (self.view.window?.windowController?.document as! Document)
+    }
 	
 	@IBOutlet var editorView: NSTextView!
 	
@@ -70,7 +70,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	}
 	
 	func textDidChange(_ notification: Notification) {
-		(self.view.window?.windowController?.document as! Document).updateChangeCount(NSDocument.ChangeType.changeDone)
+		self.document.updateChangeCount(NSDocument.ChangeType.changeDone)
 		updateColumnAndLineLabels()
 	}
 	
@@ -124,5 +124,28 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	
 	@IBOutlet var touchBarLineLabel: NSTextField!
 	@IBOutlet var touchBarColumnLabel: NSTextField!
+    
+    func updatePreviewView () {
+        if (self.document.viewingMode == 2 && self.document.shouldLivePreviewMarkdown) {
+            if (livePreviewWindow != nil) {
+                livePreviewWindow?.setIsVisible(true)
+            } else {
+                livePreviewWindow = NSPanel (contentRect: NSRect (x: 0, y: 0, width: 500, height: 300), styleMask: NSWindow.StyleMask.hudWindow, backing: .buffered, defer: false)
+                //livePreviewWindow?.contentViewController = ...
+                livePreviewWindow?.level = .floating
+                
+                let controller = NSWindowController (window: livePreviewWindow)
+                controller.showWindow(self)
+            }
+        } else {
+            livePreviewWindow?.setIsVisible(false)
+        }
+    }
+    
+    var livePreviewWindow:NSWindow?
+    
+    override func viewWillDisappear() {
+        livePreviewWindow?.setIsVisible(false)
+    }
 }
 
