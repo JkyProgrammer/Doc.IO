@@ -1,32 +1,32 @@
 //
-//  ExecCommandViewController.swift
+//  BuildScriptCallViewController.swift
 //  Quantum
 //
-//  Created by Javax on 01/07/2018.
+//  Created by Javax on 30/06/2018.
 //  Copyright © 2018 Javax Inc. All rights reserved.
 //
 
 import Cocoa
 
-class ExecCommandViewController: NSViewController {
-	
+class BuildScriptCallViewController: NSViewController {
+
 	let task = Process()
 	let pipe = Pipe()
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.view.window?.title = "Execute Command"
-	}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		self.view.window?.title = "Run Build Script"
+    }
 	
 	override func viewDidAppear() {
 		// Do view setup here.
-		let path = (NSApp.orderedDocuments as! Document).executionCommand
-		if (path != nil && path != "") {
+		let path = (NSApp.orderedDocuments[0] as! Document).buildScriptPath
+		if (path != "") {
 			// Set the task parameters
 			if FileManager.default.fileExists(atPath: path) {
 				
-				task.launchPath = path
-				//task.arguments = ["Test"]
+				task.launchPath = "/bin/bash"
+				task.arguments = [path]
 				
 				// Create a Pipe and make the task
 				// put all the output there
@@ -44,9 +44,9 @@ class ExecCommandViewController: NSViewController {
 					while (self.task.isRunning) {
 						let data = self.pipe.fileHandleForReading.readDataToEndOfFile()
 						let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-						self.perform(#selector (ExecCommandViewController.setText), on: main, with: output! as String, waitUntilDone: false)
+						self.perform(#selector (BuildScriptCallViewController.setText), on: main, with: output! as String, waitUntilDone: false)
 					}
-					self.perform(#selector (ExecCommandViewController.stopAnimating), on: main, with: nil, waitUntilDone: false)
+					self.perform(#selector (BuildScriptCallViewController.stopAnimating), on: main, with: nil, waitUntilDone: false)
 				}
 			} else {
 				setText(t: "Command executable not found.")
@@ -62,7 +62,7 @@ class ExecCommandViewController: NSViewController {
 	@IBOutlet var outputView: NSTextView!
 	
 	@objc func setText (t:String) {
-		self.outputView.string = "\n" + self.outputView.string + t
+		self.outputView.string = self.outputView.string + "\n" +  t
 		Swift.print (t)
 	}
 	
@@ -81,5 +81,4 @@ class ExecCommandViewController: NSViewController {
 		self.dismiss(sender)
 		//self.view.window?.close()
 	}
-	
 }

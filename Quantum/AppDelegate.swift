@@ -21,5 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 	}
 
+    @IBAction func showInFinder(_ sender: Any) {
+        if (NSApp.orderedDocuments[0].fileURL != nil) {
+            NSWorkspace.shared.activateFileViewerSelecting([NSApp.orderedDocuments[0].fileURL!])
+        } else {
+            
+        }
+    }
 }
 

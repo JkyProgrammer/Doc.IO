@@ -38,8 +38,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         editorView.isAutomaticQuoteSubstitutionEnabled = false;
 		
 		updateColumnAndLineLabels()
+        
         updatePreviewView()
         Swift.print ("Loaded window successfully")
+        Swift.print ("View appeared")
 	}
 
 	override var representedObject: Any? {
@@ -72,6 +74,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	func textDidChange(_ notification: Notification) {
 		self.document.updateChangeCount(NSDocument.ChangeType.changeDone)
 		updateColumnAndLineLabels()
+        if (rendererView != nil) {
+            rendererView?.updateRender(editorView.string)
+        }
 	}
 	
 	func textViewDidChangeSelection(_ notification: Notification) {
@@ -125,15 +130,35 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	@IBOutlet var touchBarLineLabel: NSTextField!
 	@IBOutlet var touchBarColumnLabel: NSTextField!
     
+    // Markdown Rendering Code
+    
     func updatePreviewView () {
         if (self.document.viewingMode == 2 && self.document.shouldLivePreviewMarkdown) {
             if (livePreviewWindow != nil) {
                 livePreviewWindow?.setIsVisible(true)
+                
+                if (rendererView?.isPrepared)! {
+                    rendererView?.updateRender(editorView.string)
+                } else {
+                    rendererView?.prepare()
+                    rendererView?.updateRender(editorView.string)
+                }
             } else {
-                livePreviewWindow = NSPanel (contentRect: NSRect (x: 0, y: 0, width: 500, height: 300), styleMask: NSWindow.StyleMask.hudWindow, backing: .buffered, defer: false)
+                livePreviewWindow = NSPanel (contentRect: NSRect (x: Int((self.view.window?.frame.maxX)!)-500, y: Int((self.view.window?.frame.maxY)!)-300, width: 500, height: 300), styleMask: NSWindow.StyleMask.hudWindow, backing: .buffered, defer: false)
                 //livePreviewWindow?.contentViewController = ...
                 livePreviewWindow?.level = .floating
                 
+                rendererView = MarkDownRenderTextView ()
+                
+                if (rendererView?.isPrepared)! {
+                    rendererView?.updateRender(editorView.string)
+                } else {
+                    rendererView?.prepare()
+                    rendererView?.updateRender(editorView.string)
+                }
+                rendererView?.setFrameSize(NSSize(width: 500, height: 300))
+                rendererView?.setFrameOrigin(NSPoint(x:0, y:0))
+                livePreviewWindow?.contentView?.addSubview(rendererView!)
                 let controller = NSWindowController (window: livePreviewWindow)
                 controller.showWindow(self)
             }
@@ -142,10 +167,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
     }
     
+    var rendererView:MarkDownRenderTextView?
     var livePreviewWindow:NSWindow?
     
     override func viewWillDisappear() {
         livePreviewWindow?.setIsVisible(false)
     }
+    
+    override func viewDidDisappear() {
+        livePreviewWindow?.setIsVisible(false)
+        Swift.print ("View disappeared")
+    }
 }
-
