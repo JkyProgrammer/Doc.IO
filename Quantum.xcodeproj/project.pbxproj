@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */; };
 		A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */; };
 		A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */; };
 		A85B367920DFD467006556AF /* Quantum Icon-02.icns in Resources */ = {isa = PBXBuildFile; fileRef = A85B367820DFD467006556AF /* Quantum Icon-02.icns */; };
@@ -20,7 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkDownRenderTextView.swift; sourceTree = "<group>"; };
+		A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownRenderViewController.swift; sourceTree = "<group>"; };
+		A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkDownRenderTextView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecCommandViewController.swift; sourceTree = "<group>"; };
 		A85B367820DFD467006556AF /* Quantum Icon-02.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Quantum Icon-02.icns"; sourceTree = "<group>"; };
 		A887732120E4B9D4007B38A1 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */,
+				A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */,
 			);
 			path = "MarkDown Rendering";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				A88BF4A420DE57E600938550 /* ViewController.swift in Sources */,
 				A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */,
 				A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */,
+				A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */,
 				A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */,
 				A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,

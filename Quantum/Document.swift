@@ -138,6 +138,6 @@ class Document: NSDocument {
 	var language:String = "None"
 	var buildScriptPath:String = ""
 	var executionCommand:String = ""
-	var shouldLivePreviewMarkdown:Bool = false
+	var shouldLivePreviewMarkdown:Bool = true
 }
 

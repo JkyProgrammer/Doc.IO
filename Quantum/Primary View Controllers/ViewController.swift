@@ -145,10 +145,11 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 }
             } else {
                 livePreviewWindow = NSPanel (contentRect: NSRect (x: Int((self.view.window?.frame.maxX)!)-500, y: Int((self.view.window?.frame.maxY)!)-300, width: 500, height: 300), styleMask: NSWindow.StyleMask.hudWindow, backing: .buffered, defer: false)
-                //livePreviewWindow?.contentViewController = ...
+                let vc = NSStoryboard (name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MarkDownRenderViewController")) as! MarkDownRenderViewController
+                livePreviewWindow?.contentViewController = vc
                 livePreviewWindow?.level = .floating
                 
-                rendererView = MarkDownRenderTextView ()
+                //rendererView = vc.textView
                 
                 if (rendererView?.isPrepared)! {
                     rendererView?.updateRender(editorView.string)
@@ -156,9 +157,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     rendererView?.prepare()
                     rendererView?.updateRender(editorView.string)
                 }
-                rendererView?.setFrameSize(NSSize(width: 500, height: 300))
-                rendererView?.setFrameOrigin(NSPoint(x:0, y:0))
-                livePreviewWindow?.contentView?.addSubview(rendererView!)
+                //rendererView?.setFrameSize(NSSize(width: 500, height: 300))
+                //rendererView?.setFrameOrigin(NSPoint(x:0, y:0))
+                //livePreviewWindow?.contentView?.addSubview(rendererView!)
                 let controller = NSWindowController (window: livePreviewWindow)
                 controller.showWindow(self)
             }
@@ -167,7 +168,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
     }
     
-    var rendererView:MarkDownRenderTextView?
+    var rendererView:MarkDownRenderTextView? {
+        return (livePreviewWindow?.contentViewController as! MarkDownRenderViewController).textView
+    }
     var livePreviewWindow:NSWindow?
     
     override func viewWillDisappear() {
