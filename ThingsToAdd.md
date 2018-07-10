@@ -4,7 +4,7 @@
 
 * Strike-throughs
 * Basic links
-* Images?
+* Images
 * Code snippets
 
 Additionally, make renderer search **recursively**.
@@ -16,7 +16,7 @@ Additionally, make renderer search **recursively**.
 	* Language based
 	* Otherwise automatic
 	* Based on token location
-* Autocomplete?
+* Autocomplete
 * Auto-indenting and bracket-closing
 * Hook up touch bar buttons
 
@@ -43,3 +43,5 @@ Additionally, make renderer search **recursively**.
 * Document options saving per file
 * Application options
 * Tool key binding assignment
+* Project outline viewer
+* Line numbers
