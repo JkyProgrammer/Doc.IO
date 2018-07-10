@@ -32,6 +32,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		//self.view.layer?.backgroundColor = NSColor (red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0).cgColor
 		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
 		//NSApp.delegate
+        //Swift.print(self.view.window!.minFullScreenContentSize, self.view.window?.frame)
 		editorView.delegate = self
         editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
         editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
@@ -169,7 +170,11 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     var rendererView:MarkDownRenderTextView? {
-        return (livePreviewWindow?.contentViewController as! MarkDownRenderViewController).textView
+        if (livePreviewWindow != nil) {
+            return (livePreviewWindow?.contentViewController as! MarkDownRenderViewController).textView
+        } else {
+            return nil
+        }
     }
     var livePreviewWindow:NSWindow?
     
