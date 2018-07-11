@@ -34,6 +34,7 @@ class MarkDownRenderTextView: NSTextView {
         bulletFont = NSFont (name: "Helvetica Neue", size: 1)
 		strikeFont = NSFont (name: "Helvetica Neue", size: 2)
 		codeFont = NSFont (name: "Courier", size: 10)
+		linkFont = NSFont (name: "Helvetica Neue", size: 3)
 		
 		self.typingAttributes.updateValue(NSColor.lightGray, forKey: NSAttributedStringKey.foregroundColor)
 		self.typingAttributes.updateValue(NSColor.clear, forKey: NSAttributedStringKey.backgroundColor)
@@ -63,7 +64,9 @@ class MarkDownRenderTextView: NSTextView {
         var parts:[(String, NSFont?)] = []
         var isAlreadyCountingToChar:Character? = nil
         var isCountingToEndOfBold = 0
-        
+		
+		var tmpLinks:[String] = []
+		
         while loc < text.count {
             if (isAlreadyCountingToChar == nil) {
                 if (chars[loc] == "#") {
@@ -129,8 +132,12 @@ class MarkDownRenderTextView: NSTextView {
 							loc += 0
 						}
 					}
-                } else {
-                    parts.append((String(chars[loc]), basicFont))
+				} else if (chars[loc] == "[") {
+					isAlreadyCountingToChar = "]"
+					parts.append(("", linkFont))
+					loc += 0
+				} else {
+					parts.append((String(chars[loc]), basicFont))
                 }
             } else {
                 if (chars[loc] == isAlreadyCountingToChar) {
@@ -158,16 +165,24 @@ class MarkDownRenderTextView: NSTextView {
 					if (chars[loc] == "\n") {
 						let lastIndex = parts.count-1
 						parts[lastIndex].0.append(chars[loc])
+					} else if (chars[loc] == "]") {
+						isAlreadyCountingToChar = ")"
+						tmpLinks.append ("")
+						loc += 1
 					}
-				
 				} else if (chars[loc] == "\n" && isAlreadyCountingToChar != "`") {
 					let lastIndex = parts.count-1
 					parts[lastIndex].0.append(chars[loc])
 					isAlreadyCountingToChar = nil
 					isCountingToEndOfBold = 0
 				} else {
-                    	let lastIndex = parts.count-1
-                    	parts[lastIndex].0.append(chars[loc])
+					if (isAlreadyCountingToChar == ")") {
+						let lastIndex = tmpLinks.count-1
+						tmpLinks[lastIndex].append(chars[loc])
+					} else {
+						let lastIndex = parts.count-1
+						parts[lastIndex].0.append(chars[loc])
+					}
                 }
             }
             
@@ -176,6 +191,8 @@ class MarkDownRenderTextView: NSTextView {
         
         self.string = ""
         var prevEndLoc = 0
+		var linkIndex = 0
+		
         for part in parts {
             if (part.1 != nil) {
 				var fnt = part.1
@@ -192,8 +209,16 @@ class MarkDownRenderTextView: NSTextView {
 					
 					self.textStorage?.append(atString)
 					//prevEndLoc += 1
-				} else if ((fnt!.fontName) == "Courier") {
+				} else if ((fnt!.pointSize) < CGFloat(4)) {
 					fnt = basicFont
+					if (tmpLinks.count > linkIndex) {
+					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.link:tmpLinks[linkIndex], NSAttributedStringKey.underlineStyle:1])
+					
+					self.textStorage?.append(atString)
+					//prevEndLoc += 1
+					linkIndex += 1
+					}
+				} else if ((fnt!.fontName) == "Courier") {
 					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.backgroundColor:NSColor.gray])
 					
 					self.textStorage?.append(atString)

@@ -12,35 +12,26 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		//tableViewer.delegate = self
-		
-		//tableViewer.dataSource = self
-		//tableViewer.refusesFirstResponder = true
-		
-		//editorView = NSTextView (frame: NSRect(x: Int(editorViewHolder.frame.minX), y: Int(editorViewHolder.frame.minY), width: Int(editorViewHolder.frame.maxX) - 30, height: Int(editorViewHolder.frame.maxY)))
-		
-		
-		//self.editorViewHolder.addSubview(editorView)
+        
 	}
 	
 	@IBOutlet var tableViewer: NSTableView!
 
 	
 	override func viewDidAppear() {
-		//self.view.window?.backgroundColor = NSColor (red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
-		//self.view.layer?.backgroundColor = NSColor (red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0).cgColor
 		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
-		//NSApp.delegate
-        //Swift.print(self.view.window!.minFullScreenContentSize, self.view.window?.frame)
 		editorView.delegate = self
         editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
         editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
-        editorView.isAutomaticQuoteSubstitutionEnabled = false;
-		
-		updateColumnAndLineLabels()
+        editorView.isAutomaticQuoteSubstitutionEnabled = false
+        editorView.isAutomaticLinkDetectionEnabled = false
+        editorView.isAutomaticDashSubstitutionEnabled = false
+        editorView.isAutomaticTextReplacementEnabled = false
+        editorView.isAutomaticDataDetectionEnabled = false
         
+		updateColumnAndLineLabels()
         updatePreviewView()
+        
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
 	}

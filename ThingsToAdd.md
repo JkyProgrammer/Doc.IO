@@ -3,7 +3,7 @@
 ## MarkDown Tings
 
 ~~Strike-throughs~~
-* Basic links
+* Basic links    <------------ NEXT
 * Images
 ~~Code snippets~~
 
@@ -36,7 +36,7 @@ Additionally, make renderer search **recursively**.
 
 ### General Tools
 * Spell checking
-* . . .
+* ...
 
 ## General Other Things
 
