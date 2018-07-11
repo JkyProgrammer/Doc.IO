@@ -45,3 +45,4 @@ Additionally, make renderer search **recursively**.
 * Tool key binding assignment
 * Project outline viewer
 * Line numbers
+* GitHub tools
