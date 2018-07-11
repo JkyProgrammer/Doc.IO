@@ -1,11 +1,11 @@
-# Things to add
+# Things to Add
 
 ## MarkDown Tings
 
-* Strike-throughs
+~~Strike-throughs~~
 * Basic links
 * Images
-* Code snippets
+~~Code snippets~~
 
 Additionally, make renderer search **recursively**.
 

@@ -28,3 +28,11 @@ So here's how it works basically.
 ## Headings Level 2
 and
 ### Headings Level 3
+We can have code snippets:
+`public static void main (String[] args) {
+	for (int i = 0; i < 10; i++) {
+		System.out.println ("Hello, World!");
+	}
+}`
+And they can be inline, like this. `if (goingToCrashIntoEachOther ()) { dont(); }`
+And we can always tell someone we've got something wrong. ~~Like now~~
