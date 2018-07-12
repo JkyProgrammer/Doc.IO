@@ -1,6 +1,6 @@
 //
 //  Document.swift
-//  Doc.IO
+//  Quantum
 //
 //  Created by Javax on 23/06/2018.
 //  Copyright © 2018 Javax Inc. All rights reserved.

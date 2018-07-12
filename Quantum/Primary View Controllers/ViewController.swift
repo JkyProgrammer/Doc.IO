@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Doc.IO
+//  Quantum
 //
 //  Created by Javax on 23/06/2018.
 //  Copyright © 2018 Javax Inc. All rights reserved.
@@ -9,16 +9,25 @@
 import Cocoa
 let sstoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate {
-
-	
-	
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate, NSWindowDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.window?.invalidateCursorRects(for: editorViewHolder)
 	}
 	
+	func windowDidBecomeKey (_ notification: Notification) {
+		if (livePreviewWindow != nil) {
+			livePreviewWindow?.setIsVisible(true)
+		}
+		//Swift.print ("Became key")
+	}
 	
+	func windowDidResignKey (_ notification: Notification) {
+		if (livePreviewWindow != nil) {
+			livePreviewWindow?.setIsVisible(false)
+		}
+		//Swift.print ("Lost key")
+	}
 	
 	@IBOutlet var tableViewer: NSTableView!
 
@@ -37,6 +46,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		updateColumnAndLineLabels()
         updatePreviewView()
 		
+		self.view.window?.delegate = self
 		
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
@@ -142,13 +152,16 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     rendererView?.updateRender(editorView.string)
                 }
             } else {
-                livePreviewWindow = NSPanel (contentRect: NSRect (x: Int((self.view.window?.frame.maxX)!)-500, y: Int((self.view.window?.frame.maxY)!)-300, width: 500, height: 300), styleMask: NSWindow.StyleMask.hudWindow, backing: .buffered, defer: false)
+                livePreviewWindow = NSPanel (contentRect: NSRect (x: Int((self.view.window?.frame.maxX)!)-500, y: Int((self.view.window?.frame.maxY)!)-300, width: 500, height: 300), styleMask: NSWindow.StyleMask.borderless, backing: .buffered, defer: false)
                 let vc = NSStoryboard (name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MarkDownRenderViewController")) as! MarkDownRenderViewController
                 livePreviewWindow?.contentViewController = vc
                 livePreviewWindow?.level = .floating
-                
-                //rendererView = vc.textView
-                
+				livePreviewWindow?.styleMask = NSWindow.StyleMask(rawValue: NSWindow.StyleMask.RawValue(UInt16((livePreviewWindow?.styleMask)!.rawValue) | UInt16(NSWindow.StyleMask.resizable.rawValue)))
+                //livePreviewWindow?.isMovable = true
+				livePreviewWindow?.isOpaque = false
+				livePreviewWindow?.backgroundColor = NSColor (deviceWhite: 0.2, alpha: 0.7)
+				livePreviewWindow?.isMovableByWindowBackground = true
+				//livePreviewWindow
                 if (rendererView?.isPrepared)! {
                     rendererView?.updateRender(editorView.string)
                 } else {

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Doc.IO
+//  Quantum
 //
 //  Created by Javax on 23/06/2018.
 //  Copyright © 2018 Javax Inc. All rights reserved.
@@ -17,7 +17,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
-		
 	}
 
     @IBAction func showInFinder(_ sender: Any) {
