@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */; };
 		A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */; };
+		A812FC7020F740BA002974F9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC6F20F740BA002974F9 /* View.swift */; };
+		A812FC7220F742C9002974F9 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC7120F742C9002974F9 /* EditorView.swift */; };
 		A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */; };
 		A85B367920DFD467006556AF /* Quantum Icon-02.icns in Resources */ = {isa = PBXBuildFile; fileRef = A85B367820DFD467006556AF /* Quantum Icon-02.icns */; };
 		A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887732120E4B9D4007B38A1 /* OptionsViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownRenderViewController.swift; sourceTree = "<group>"; };
 		A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkDownRenderTextView.swift; sourceTree = "<group>"; usesTabs = 1; };
+		A812FC6F20F740BA002974F9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		A812FC7120F742C9002974F9 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecCommandViewController.swift; sourceTree = "<group>"; };
 		A85B367820DFD467006556AF /* Quantum Icon-02.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Quantum Icon-02.icns"; sourceTree = "<group>"; };
 		A887732120E4B9D4007B38A1 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				A88BF4A320DE57E600938550 /* ViewController.swift */,
+				A812FC6F20F740BA002974F9 /* View.swift */,
+				A812FC7120F742C9002974F9 /* EditorView.swift */,
 				A887732120E4B9D4007B38A1 /* OptionsViewController.swift */,
 			);
 			path = "Primary View Controllers";
@@ -195,9 +201,11 @@
 				A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */,
 				A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */,
 				A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */,
+				A812FC7020F740BA002974F9 /* View.swift in Sources */,
 				A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,
 				A88BF4A620DE57E600938550 /* Document.swift in Sources */,
+				A812FC7220F742C9002974F9 /* EditorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

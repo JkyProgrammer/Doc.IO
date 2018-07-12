@@ -8,12 +8,17 @@
 
 import Cocoa
 let sstoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate {
 
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
+		self.view.window?.invalidateCursorRects(for: editorViewHolder)
 	}
+	
+	
 	
 	@IBOutlet var tableViewer: NSTableView!
 
@@ -31,7 +36,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         
 		updateColumnAndLineLabels()
         updatePreviewView()
-        
+		
+		
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
 	}

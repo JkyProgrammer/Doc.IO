@@ -917,7 +917,7 @@ Gw
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="5gI-5U-AMq" userLabel="Main View Controller" customClass="ViewController" customModule="Quantum" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
+                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd" customClass="View" customModule="Quantum" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1082" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -927,7 +927,7 @@ Gw
                                     <rect key="frame" x="1" y="1" width="1025" height="469"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="h7h-5E-z44">
+                                        <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="h7h-5E-z44" customClass="EditorView" customModule="Quantum" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="1025" height="469"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <touchBar key="touchBar" id="L36-rx-ZhF">
@@ -1094,6 +1094,10 @@ Gw
                             <constraint firstItem="Cos-qN-ydc" firstAttribute="top" secondItem="tnW-Zr-ufI" secondAttribute="bottom" constant="8" id="yI5-7Y-iNd"/>
                             <constraint firstAttribute="trailing" secondItem="tnW-Zr-ufI" secondAttribute="trailing" constant="20" symbolic="YES" id="zPI-Py-u12"/>
                         </constraints>
+                        <connections>
+                            <outlet property="editorView" destination="h7h-5E-z44" id="1TL-FD-Tnf"/>
+                            <outlet property="editorViewHolder" destination="Cos-qN-ydc" id="ywN-NJ-JzS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="columnLabel" destination="clq-Iu-dBs" id="2Ye-Dm-tv6"/>
