@@ -18,5 +18,7 @@
 	<true/>
 	<key>com.apple.security.print</key>
 	<true/>
+	<key>com.apple.security.assets.desktop.read-write</key>
+	<string>YES</string>
 </dict>
 </plist>

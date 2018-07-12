@@ -26,7 +26,7 @@ So here's how it works basically.
 * Lists
 # Heading Level 1
 ## Headings Level 2
-and 
+and
 ### Headings Level 3
 We can have code snippets using backticks:
 `public static void main (String[] args) {

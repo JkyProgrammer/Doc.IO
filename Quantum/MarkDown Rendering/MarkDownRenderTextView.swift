@@ -40,7 +40,8 @@ class MarkDownRenderTextView: NSTextView {
 		self.typingAttributes.updateValue(NSColor.lightGray, forKey: NSAttributedStringKey.foregroundColor)
 		self.typingAttributes.updateValue(NSColor.clear, forKey: NSAttributedStringKey.backgroundColor)
 		self.typingAttributes.removeValue(forKey: NSAttributedStringKey.font)
-        //self.font = basicFont
+		self.layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
+
         isPrepared = true
     }
     
@@ -59,7 +60,7 @@ class MarkDownRenderTextView: NSTextView {
 	
     func updateRender (_ text:String) {
 		//Swift.print ("Updating MarkDown render")
-		
+		let tmpScrollLoc = ((self.superview?.superview as! NSScrollView).verticalScroller?.doubleValue)!
         var loc = 0
         let chars = Array (text)
         var parts:[(String, NSFont?)] = []
@@ -211,14 +212,39 @@ class MarkDownRenderTextView: NSTextView {
 					self.textStorage?.append(atString)
 					//prevEndLoc += 1
 				} else if ((fnt!.pointSize) < CGFloat(4)) {
-					fnt = basicFont
 					if (tmpLinks.count > linkIndex) {
-					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.link:tmpLinks[linkIndex], NSAttributedStringKey.underlineStyle:1])
-					
-					self.textStorage?.append(atString)
-					//prevEndLoc += 1
-					linkIndex += 1
+						if !(["png","jpg","gif"].contains (URL(string: tmpLinks[linkIndex])?.pathExtension)) {
+							fnt = basicFont
+							
+								let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.link:tmpLinks[linkIndex], NSAttributedStringKey.underlineStyle:1])
+						
+								self.textStorage?.append(atString)
+								//prevEndLoc += 1
+						} else {
+							if let url = URL(string: tmpLinks[linkIndex]) {
+								let attachment = NSTextAttachment ()
+								Swift.print (FileManager.default.fileExists(atPath: url.absoluteString))
+								Swift.print (FileManager.default.isReadableFile(atPath: url.absoluteString))
+								let data = FileManager.default.contents(atPath: url.absoluteString)
+								if (data != nil) {
+									let img = NSImage (contentsOfFile: url.absoluteString)
+									
+//									img?.lockFocus()
+//									let t = NSAffineTransform (transform: AffineTransform.init(scaleByX: 1.0, byY: -1.0))
+//
+//									t.concat()
+//									img?.draw(at: NSPoint(x: 0, y: 0), from: NSRect (x: 0, y: 0, width: (img?.size.width)!, height: (img?.size.height)!), operation: NSCompositingOperation.sourceOver, fraction: 1.0)
+//									img?.unlockFocus()
+									attachment.image = img
+									let istring = NSAttributedString (attachment: attachment)
+									self.textStorage?.append(istring)
+								} else {
+									Swift.print ("Y???")
+								}
+							}
+						}
 					}
+					linkIndex += 1
 				} else if ((fnt!.fontName) == "Courier") {
 					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.backgroundColor:NSColor.gray])
 					
@@ -233,6 +259,8 @@ class MarkDownRenderTextView: NSTextView {
 				prevEndLoc += part.0.count
 			}
         }
+		
+		(self.superview?.superview as! NSScrollView).verticalScroller?.doubleValue = tmpScrollLoc
     }
 	
 	override func clicked(onLink link: Any, at charIndex: Int) {

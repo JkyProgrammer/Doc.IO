@@ -36,13 +36,15 @@ Additionally, make renderer search **recursively**.
 
 ### General Tools
 * Spell checking
-* ...
+* GitHub tools
 
 ## General Other Things
 
 * Document options saving per file
+* Scroll retention on MarkDown render
 * Application options
 * Tool key binding assignment
 * Project outline viewer
 * Line numbers
-* GitHub tools
+
+[Image](/Users/JavaxProgrammer/Pictures/Planning.png)
