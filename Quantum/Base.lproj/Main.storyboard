@@ -37,16 +37,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrm-2v-hCo">
-                                <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="280"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="s8s-Jn-C1p">
-                                    <rect key="frame" x="0.0" y="0.0" width="485" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="485" height="280"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" selectable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="sFj-fd-303" customClass="MarkDownRenderTextView" customModule="Quantum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="485" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="485" height="280"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="485" height="300"/>
+                                            <size key="minSize" width="485" height="280"/>
                                             <size key="maxSize" width="500" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -58,16 +58,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="yrB-oJ-imM">
-                                    <rect key="frame" x="485" y="0.0" width="15" height="300"/>
+                                    <rect key="frame" x="485" y="0.0" width="15" height="280"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Qrm-2v-hCo" secondAttribute="trailing" id="E3K-6l-x9t"/>
-                            <constraint firstItem="Qrm-2v-hCo" firstAttribute="top" secondItem="kNA-Dt-vHU" secondAttribute="top" id="Mtm-Qs-wv2"/>
-                            <constraint firstAttribute="bottom" secondItem="Qrm-2v-hCo" secondAttribute="bottom" id="xdD-ts-9UF"/>
-                            <constraint firstItem="Qrm-2v-hCo" firstAttribute="leading" secondItem="kNA-Dt-vHU" secondAttribute="leading" id="z1G-LO-dOM"/>
+                            <constraint firstAttribute="trailing" secondItem="Qrm-2v-hCo" secondAttribute="trailing" id="0YX-Vd-sor"/>
+                            <constraint firstItem="Qrm-2v-hCo" firstAttribute="leading" secondItem="kNA-Dt-vHU" secondAttribute="leading" id="Lgc-T6-wBH"/>
+                            <constraint firstAttribute="bottom" secondItem="Qrm-2v-hCo" secondAttribute="bottom" id="nx5-FL-l8N"/>
+                            <constraint firstItem="Qrm-2v-hCo" firstAttribute="top" secondItem="kNA-Dt-vHU" secondAttribute="top" constant="20" symbolic="YES" id="sq2-4M-2GO"/>
                         </constraints>
                     </view>
                     <connections>

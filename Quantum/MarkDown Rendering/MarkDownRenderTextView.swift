@@ -17,23 +17,24 @@ class MarkDownRenderTextView: NSTextView {
     }
     
     func prepare () {
+		//self.selected
         self.isRichText = true
         self.isEditable = false
-        self.isSelectable = false
+        self.isSelectable = true
         self.drawsBackground = false
 		
         self.backgroundColor = .clear
         
-        basicFont = NSFont (name: "Helvetica Neue", size: 12)
+        basicFont = NSFont (name: "Helvetica Neue", size: 14)
         heading1Font = NSFont (name: "Helvetica Neue Bold", size: 24)
         heading2Font = NSFont (name: "Helvetica Neue Bold", size: 20)
         heading3Font = NSFont (name: "Helvetica Neue Bold", size: 16)
         
-        boldFont = NSFont (name: "Helvetica Neue Bold", size: 12)
-        italicFont = NSFont (name: "Helvetica Neue Italic", size: 12)
+        boldFont = NSFont (name: "Helvetica Neue Bold", size: 14)
+        italicFont = NSFont (name: "Helvetica Neue Italic", size: 14)
         bulletFont = NSFont (name: "Helvetica Neue", size: 1)
 		strikeFont = NSFont (name: "Helvetica Neue", size: 2)
-		codeFont = NSFont (name: "Courier", size: 10)
+		codeFont = NSFont (name: "Courier", size: 12)
 		linkFont = NSFont (name: "Helvetica Neue", size: 3)
 		
 		self.typingAttributes.updateValue(NSColor.lightGray, forKey: NSAttributedStringKey.foregroundColor)
@@ -55,7 +56,7 @@ class MarkDownRenderTextView: NSTextView {
     var linkFont:NSFont?
 	var strikeFont:NSFont?
 	var codeFont:NSFont?
-    
+	
     func updateRender (_ text:String) {
 		//Swift.print ("Updating MarkDown render")
 		
@@ -233,5 +234,12 @@ class MarkDownRenderTextView: NSTextView {
 			}
         }
     }
+	
+	override func clicked(onLink link: Any, at charIndex: Int) {
+		Swift.print (link)
+		if let url = URL(string: link as! String) {
+			NSWorkspace.shared.open(url)
+		}
+	}
     
 }
