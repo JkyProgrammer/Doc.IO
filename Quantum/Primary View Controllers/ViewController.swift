@@ -48,6 +48,12 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		
 		self.view.window?.delegate = self
 		
+		if ((NSApp.orderedDocuments[0] as! Document) == self.document && livePreviewWindow != nil) {
+			self.livePreviewWindow?.setIsVisible(true)
+		} else {
+			self.livePreviewWindow?.setIsVisible(false)
+		}
+		
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
 	}
@@ -141,7 +147,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     // Markdown Rendering Code
     
     func updatePreviewView () {
-        if (self.document.viewingMode == 2 && self.document.shouldLivePreviewMarkdown) {
+		if (self.document.viewingMode == 2 && self.document.shouldLivePreviewMarkdown) {
             if (livePreviewWindow != nil) {
                 livePreviewWindow?.setIsVisible(true)
                 
@@ -187,13 +193,4 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
     }
     var livePreviewWindow:NSWindow?
-    
-    override func viewWillDisappear() {
-        livePreviewWindow?.setIsVisible(false)
-    }
-    
-    override func viewDidDisappear() {
-        livePreviewWindow?.setIsVisible(false)
-        Swift.print ("View disappeared")
-    }
 }

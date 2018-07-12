@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553087792.002704"
+            timestampString = "553093292.541989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553087792.0027601"
+            timestampString = "553093292.54207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553087792.002802"
+            timestampString = "553093292.542128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -160,6 +160,22 @@
             startingLineNumber = "21"
             endingLineNumber = "21"
             landmarkName = "resetCursorRects()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum/Primary View Controllers/ViewController.swift"
+            timestampString = "553094336.7473381"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidAppear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

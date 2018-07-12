@@ -3,7 +3,7 @@
 ## MarkDown Tings
 
 ~~Strike-throughs~~
-* Basic links    <------------ NEXT
+~~Basic links~~
 * Images
 ~~Code snippets~~
 

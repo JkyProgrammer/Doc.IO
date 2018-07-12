@@ -11,11 +11,11 @@
 		A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */; };
 		A812FC7020F740BA002974F9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC6F20F740BA002974F9 /* View.swift */; };
 		A812FC7220F742C9002974F9 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC7120F742C9002974F9 /* EditorView.swift */; };
+		A83D417820F7895C00E61A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A320DE57E600938550 /* ViewController.swift */; };
 		A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */; };
 		A85B367920DFD467006556AF /* Quantum Icon-02.icns in Resources */ = {isa = PBXBuildFile; fileRef = A85B367820DFD467006556AF /* Quantum Icon-02.icns */; };
 		A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887732120E4B9D4007B38A1 /* OptionsViewController.swift */; };
 		A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A120DE57E600938550 /* AppDelegate.swift */; };
-		A88BF4A420DE57E600938550 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A320DE57E600938550 /* ViewController.swift */; };
 		A88BF4A620DE57E600938550 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A520DE57E600938550 /* Document.swift */; };
 		A88BF4A820DE57F000938550 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88BF4A720DE57F000938550 /* Assets.xcassets */; };
 		A88BF4AB20DE57F000938550 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A88BF4A920DE57F000938550 /* Main.storyboard */; };
@@ -196,7 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A88BF4A420DE57E600938550 /* ViewController.swift in Sources */,
+				A83D417820F7895C00E61A22 /* ViewController.swift in Sources */,
 				A887732220E4B9D4007B38A1 /* OptionsViewController.swift in Sources */,
 				A8FA1A5E20E7E8FF00F8F96D /* BuildScriptCallViewController.swift in Sources */,
 				A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */,
