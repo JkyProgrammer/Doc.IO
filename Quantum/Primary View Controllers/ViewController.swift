@@ -68,7 +68,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		//timer.fire()
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
-        Swift.print (self.view.window?.contentViewController)
 	}
 
 	override var representedObject: Any? {
@@ -120,7 +119,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		self.document.updateChangeCount(NSDocument.ChangeType.changeDone)
 		updateColumnAndLineLabels()
         hasOldChanges = true
-        Swift.print(self.editorView.typingAttributes)
 	}
 	
 	func textViewDidChangeSelection(_ notification: Notification) {

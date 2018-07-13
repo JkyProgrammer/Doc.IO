@@ -8,6 +8,36 @@
 
 import Cocoa
 
+extension NSImage {
+	func resizeToFit(containerWidth: CGFloat) -> NSSize{
+		var scaleFactor : CGFloat = 1.0
+		let currentWidth = self.size.width
+		let currentHeight = self.size.height
+		if currentWidth > containerWidth {
+			scaleFactor = (containerWidth * 0.9) / currentWidth
+		}
+		let newWidth = currentWidth * scaleFactor
+		let newHeight = currentHeight * scaleFactor
+		return NSSize (width: newWidth, height: newHeight)
+		//self.size = NSSize(width: newWidth, height: newHeight)
+		print("Size: \(size)")
+	}
+	
+	func scaleFactorToFit (containerWidth: CGFloat) -> CGFloat{
+		var scaleFactor : CGFloat = 1.0
+		let currentWidth = self.size.width
+		let currentHeight = self.size.height
+		if currentWidth > containerWidth {
+			scaleFactor = (containerWidth * 0.9) / currentWidth
+		}
+		let newWidth = currentWidth * scaleFactor
+		let newHeight = currentHeight * scaleFactor
+		return scaleFactor
+		//self.size = NSSize(width: newWidth, height: newHeight)
+		print("Size: \(size)")
+	}
+}
+
 class MarkDownRenderTextView: NSTextView {
 
     override func draw(_ dirtyRect: NSRect) {
@@ -223,23 +253,27 @@ class MarkDownRenderTextView: NSTextView {
 						} else {
 							if let url = URL(string: tmpLinks[linkIndex]) {
 								let attachment = NSTextAttachment ()
-								Swift.print (FileManager.default.fileExists(atPath: url.absoluteString))
-								Swift.print (FileManager.default.isReadableFile(atPath: url.absoluteString))
 								let data = FileManager.default.contents(atPath: url.absoluteString)
 								if (data != nil) {
 									let img = NSImage (contentsOfFile: url.absoluteString)
+									let newImg = NSImage (size: (img?.resizeToFit(containerWidth: self.frame.width))!)
+									let sf = img?.scaleFactorToFit(containerWidth: self.frame.width)
+									newImg.lockFocus()
+									let t = NSAffineTransform (transform: AffineTransform (scaleByX: 1.0, byY: 1.0))
+									t.scaleX(by: 1.0, yBy: -1.0)
+									t.scale(by: sf!)
+									t.set()
+									let cuttingRect = NSRect (origin: CGPoint (x:0,y:0), size: (img?.size)!)
 									
-//									img?.lockFocus()
-//									let t = NSAffineTransform (transform: AffineTransform.init(scaleByX: 1.0, byY: -1.0))
-//
-//									t.concat()
-//									img?.draw(at: NSPoint(x: 0, y: 0), from: NSRect (x: 0, y: 0, width: (img?.size.width)!, height: (img?.size.height)!), operation: NSCompositingOperation.sourceOver, fraction: 1.0)
-//									img?.unlockFocus()
-									attachment.image = img
-									let istring = NSAttributedString (attachment: attachment)
+									img?.draw(at: NSPoint (x: 0, y: 0.000-(img?.size.height)!), from: cuttingRect, operation: NSCompositingOperation.copy, fraction: 1.0)
+									newImg.unlockFocus()
+									
+									attachment.image = newImg
+									attachment.bounds = cuttingRect
+									let istring = NSMutableAttributedString (attributedString: NSAttributedString(attachment: attachment))
 									self.textStorage?.append(istring)
 								} else {
-									Swift.print ("Y???")
+									Swift.print ("Unable to load image")
 								}
 							}
 						}

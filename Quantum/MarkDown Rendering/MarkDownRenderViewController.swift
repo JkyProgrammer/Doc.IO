@@ -15,7 +15,7 @@ class MarkDownRenderViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-		
+		self.view.window?.minSize.width = 500
     }
     
 }

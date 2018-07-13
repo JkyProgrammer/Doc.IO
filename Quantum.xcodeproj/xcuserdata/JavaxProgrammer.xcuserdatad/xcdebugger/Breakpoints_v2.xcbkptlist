@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553172083.21315"
+            timestampString = "553216582.4903949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553172083.2132421"
+            timestampString = "553216582.4904521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Document.swift"
-            timestampString = "553172083.2132829"
+            timestampString = "553216582.490491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553170028.760879"
+            timestampString = "553216582.490576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "updateRender(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Primary View Controllers/ViewController.swift"
-            timestampString = "553172083.213367"
+            timestampString = "553216582.490942"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553170028.761058"
+            timestampString = "553216582.490995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "updateRender(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Primary View Controllers/WindowController.swift"
-            timestampString = "553172083.21343"
+            timestampString = "553216582.491227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -218,13 +218,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/Primary View Controllers/ViewController.swift"
-            timestampString = "553172083.213472"
+            timestampString = "553216582.491271"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "updateColumnAndLineLabels()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
+            timestampString = "553216582.49131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "updateRender(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quantum.MarkDownRenderTextView.updateRender(Swift.String) -&gt; ()"
+                  moduleName = "Quantum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javaxprogrammer/Documents/GitHub/Quantum/Quantum/MarkDown%20Rendering/MarkDownRenderTextView.swift"
+                  timestampString = "553216482.787676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "268"
+                  endingLineNumber = "268"
+                  offsetFromSymbolStart = "37413">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quantum.MarkDownRenderTextView.updateRender(Swift.String) -&gt; ()"
+                  moduleName = "Quantum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javaxprogrammer/Documents/GitHub/Quantum/Quantum/MarkDown%20Rendering/MarkDownRenderTextView.swift"
+                  timestampString = "553216482.792335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "268"
+                  endingLineNumber = "268"
+                  offsetFromSymbolStart = "44627">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

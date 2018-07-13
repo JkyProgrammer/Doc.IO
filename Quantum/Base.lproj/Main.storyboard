@@ -42,7 +42,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="500" height="280"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" selectable="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="sFj-fd-303" customClass="MarkDownRenderTextView" customModule="Quantum" customModuleProvider="target">
+                                        <textView editable="NO" selectable="NO" verticallyResizable="YES" continuousSpellChecking="YES" allowsUndo="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="sFj-fd-303" customClass="MarkDownRenderTextView" customModule="Quantum" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="500" height="280"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1213,6 +1213,6 @@ Gw
         <image name="NSTouchBarFolderTemplate" width="22" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IPy-vf-BlY"/>
+        <segue reference="iYH-kv-rqK"/>
     </inferredMetricsTieBreakers>
 </document>
