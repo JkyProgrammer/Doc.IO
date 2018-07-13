@@ -18,7 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 	}
-
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+    @IBOutlet weak var newBut: NSMenuItem!
+    
     @IBAction func showInFinder(_ sender: Any) {
         if (NSApp.orderedDocuments[0].fileURL != nil) {
             NSWorkspace.shared.activateFileViewerSelecting([NSApp.orderedDocuments[0].fileURL!])

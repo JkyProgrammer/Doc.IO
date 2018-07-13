@@ -14,9 +14,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		super.viewDidLoad()
 		self.view.window?.invalidateCursorRects(for: editorViewHolder)
 	}
+    
+    func createNew () {
+        let but = (NSApp.delegate as! AppDelegate).newBut
+        NSApp.sendAction((but?.action)!, to: but?.target, from: but)
+        
+    }
 	
 	func windowDidBecomeKey (_ notification: Notification) {
-		if (livePreviewWindow != nil) {
+		if (livePreviewWindow != nil && self.document.shouldLivePreviewMarkdown && self.document.viewingMode == 2) {
 			livePreviewWindow?.setIsVisible(true)
 		}
 		//Swift.print ("Became key")
@@ -33,10 +39,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 
 	
 	override func viewDidAppear() {
-		self.view.window!.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
+        NSAppearance.current = NSAppearance (named: NSAppearance.Name.vibrantDark)
+        
 		editorView.delegate = self
+        
         editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
+        
         editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
+        
         editorView.isAutomaticQuoteSubstitutionEnabled = false
         editorView.isAutomaticLinkDetectionEnabled = false
         editorView.isAutomaticDashSubstitutionEnabled = false
@@ -53,9 +63,12 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		} else {
 			self.livePreviewWindow?.setIsVisible(false)
 		}
-		
+        
+        timer = Timer.scheduledTimer (timeInterval: 1, target: self, selector: #selector (ViewController.updateShouldRerenderMarkDown), userInfo: nil, repeats: true)
+		//timer.fire()
         Swift.print ("Loaded window successfully")
         Swift.print ("View appeared")
+        Swift.print (self.view.window?.contentViewController)
 	}
 
 	override var representedObject: Any? {
@@ -73,7 +86,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
 	
 	@IBOutlet var editorView: NSTextView!
-	
+    var timer:Timer!
+    
 	var lineNumbers:[String] = ["1","2","3"]
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
@@ -84,13 +98,29 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		let cell = NSTextFieldCell (textCell: lineNumbers[row])
 		return cell
 	}
-	
+    
+    override func viewWillDisappear() {
+        timer.invalidate()
+    }
+    
+    @objc func updateShouldRerenderMarkDown () {
+        if (rendererView != nil && !hasOldChanges && didHaveOldChanges) {
+            rendererView?.updateRender(editorView.string)
+            didHaveOldChanges = false
+        }
+        if (hasOldChanges) {
+            hasOldChanges = false
+            didHaveOldChanges = true
+        }        
+    }
+    var hasOldChanges = false
+    var didHaveOldChanges = false
+    
 	func textDidChange(_ notification: Notification) {
 		self.document.updateChangeCount(NSDocument.ChangeType.changeDone)
 		updateColumnAndLineLabels()
-        if (rendererView != nil) {
-            rendererView?.updateRender(editorView.string)
-        }
+        hasOldChanges = true
+        Swift.print(self.editorView.typingAttributes)
 	}
 	
 	func textViewDidChangeSelection(_ notification: Notification) {
@@ -124,10 +154,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 		let columnString = "Column: \(colLoc)"
 		
 		lineLabel.stringValue = lineString
-		//touchBarLineLabel.stringValue = lineString
+		touchBarLineLabel.cell?.stringValue = lineString
 		
 		columnLabel.stringValue = columnString
-		//touchBarColumnLabel.stringValue = columnString
+		touchBarColumnLabel.cell?.stringValue = columnString
 	}
 	
 	@IBAction func runBuildScriptFromTouchBar(_ sender: Any) {

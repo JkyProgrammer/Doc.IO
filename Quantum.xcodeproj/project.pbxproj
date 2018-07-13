@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A805D53720F3712600325F6D /* MarkDownRenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */; };
 		A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */; };
+		A80C112620F8A6750079CA7C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80C112520F8A6750079CA7C /* WindowController.swift */; };
 		A812FC7020F740BA002974F9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC6F20F740BA002974F9 /* View.swift */; };
 		A812FC7220F742C9002974F9 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A812FC7120F742C9002974F9 /* EditorView.swift */; };
 		A83D417820F7895C00E61A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BF4A320DE57E600938550 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		A805D53620F3712600325F6D /* MarkDownRenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownRenderViewController.swift; sourceTree = "<group>"; };
 		A80AF92820F0F6B200197896 /* MarkDownRenderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkDownRenderTextView.swift; sourceTree = "<group>"; usesTabs = 1; };
+		A80C112520F8A6750079CA7C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		A812FC6F20F740BA002974F9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A812FC7120F742C9002974F9 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		A83F441E20E93EC800C1B898 /* ExecCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecCommandViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		A80AF92B20F0F71800197896 /* Primary View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A80C112520F8A6750079CA7C /* WindowController.swift */,
 				A88BF4A320DE57E600938550 /* ViewController.swift */,
 				A812FC6F20F740BA002974F9 /* View.swift */,
 				A812FC7120F742C9002974F9 /* EditorView.swift */,
@@ -203,6 +206,7 @@
 				A83F442020E93EC800C1B898 /* ExecCommandViewController.swift in Sources */,
 				A812FC7020F740BA002974F9 /* View.swift in Sources */,
 				A80AF92920F0F6B200197896 /* MarkDownRenderTextView.swift in Sources */,
+				A80C112620F8A6750079CA7C /* WindowController.swift in Sources */,
 				A88BF4A220DE57E600938550 /* AppDelegate.swift in Sources */,
 				A88BF4A620DE57E600938550 /* Document.swift in Sources */,
 				A812FC7220F742C9002974F9 /* EditorView.swift in Sources */,

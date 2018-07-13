@@ -36,4 +36,10 @@ We can have code snippets using backticks:
 }`
 And they can be inline, like this. `if (goingToCrashIntoEachOther ()) { dont(); }`
 And we can always tell someone we've got something wrong. ~~Like now~~
-[Test](file:///Users/JavaxProgrammer/Desktop/Garbage.quantum)
+We can have links, for example, to an image.
+[A link to an image](/Users/javaxprogrammer/Pictures/glow.png)
+[A link to a file](file:///Users/javaxprogrammer/Documents/GitHub/Quantum/TestClass.java)
+[A web link](https://github.com/JkyProgrammer/Quantum)
+[An ftp link](ftp://localhost)
+[A ssh link](ssh://localhost)
+In short, you can have literally any kind of link.
