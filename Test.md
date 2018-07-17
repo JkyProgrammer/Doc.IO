@@ -20,7 +20,7 @@ So here's how it works basically.
 
 ## Specials
 
-**bold** or __bold__
+* **bold** or __bold__
 *italic* or _italic_
 * Unordered
 * Lists
