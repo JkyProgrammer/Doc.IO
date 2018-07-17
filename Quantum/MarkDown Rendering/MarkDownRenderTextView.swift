@@ -19,22 +19,15 @@ extension NSImage {
 		let newWidth = currentWidth * scaleFactor
 		let newHeight = currentHeight * scaleFactor
 		return NSSize (width: newWidth, height: newHeight)
-		//self.size = NSSize(width: newWidth, height: newHeight)
-		print("Size: \(size)")
 	}
 	
 	func scaleFactorToFit (containerWidth: CGFloat) -> CGFloat{
 		var scaleFactor : CGFloat = 1.0
 		let currentWidth = self.size.width
-		let currentHeight = self.size.height
 		if currentWidth > containerWidth {
 			scaleFactor = (containerWidth * 0.9) / currentWidth
 		}
-		let newWidth = currentWidth * scaleFactor
-		let newHeight = currentHeight * scaleFactor
 		return scaleFactor
-		//self.size = NSSize(width: newWidth, height: newHeight)
-		print("Size: \(size)")
 	}
 }
 
@@ -90,7 +83,7 @@ class MarkDownRenderTextView: NSTextView {
 	
     func updateRender (_ text:String) {
 		//Swift.print ("Updating MarkDown render")
-		let tmpScrollLoc = ((self.superview?.superview as! NSScrollView).verticalScroller?.doubleValue)!
+		let tmpGlyphRange = self.layoutManager?.glyphRange(forBoundingRect: self.visibleRect, in: self.textContainer!)
         var loc = 0
         let chars = Array (text)
         var parts:[(String, NSFont?)] = []
@@ -294,7 +287,7 @@ class MarkDownRenderTextView: NSTextView {
 			}
         }
 		
-		(self.superview?.superview as! NSScrollView).verticalScroller?.doubleValue = tmpScrollLoc
+		self.scrollRangeToVisible(tmpGlyphRange!)
     }
 	
 	override func clicked(onLink link: Any, at charIndex: Int) {

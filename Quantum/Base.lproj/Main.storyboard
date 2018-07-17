@@ -71,6 +71,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scrollView" destination="Qrm-2v-hCo" id="gSE-VX-0kz"/>
                         <outlet property="textView" destination="sFj-fd-303" id="Drv-NC-ZlS"/>
                     </connections>
                 </viewController>

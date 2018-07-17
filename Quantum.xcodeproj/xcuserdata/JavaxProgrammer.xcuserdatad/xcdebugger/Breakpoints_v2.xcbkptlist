@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553216582.490576"
+            timestampString = "553509931.1742131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "updateRender(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553216582.490995"
+            timestampString = "553509931.177665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "updateRender(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553216582.49131"
+            timestampString = "553509931.178106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "updateRender(_:)"
             landmarkType = "7">
             <Locations>
