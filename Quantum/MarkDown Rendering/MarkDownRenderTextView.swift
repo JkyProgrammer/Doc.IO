@@ -103,9 +103,9 @@ class MarkDownRenderTextView: NSTextView {
 				var fnt = part.1
 				
 				if (part.2) {
-					
-					let atString = NSAttributedString (string: "\u{2022}" + part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor])
-					
+
+					let atString = NSAttributedString (string:part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor])
+
 					newString.append(atString)
 					prevEndLoc += 1
 				} else if ((fnt!.pointSize) < CGFloat(3)) {
@@ -177,9 +177,9 @@ class MarkDownRenderTextView: NSTextView {
 	
 	var tmpLinks:[String] = []
 	
-	func processParts (text: String, appendingStart: Int = -1, isAlreadyBullet isAlreadyBulleti: Bool = false) {
+	func processParts (text: String, appendingStart: Int = -1, isAlreadyBullet isAlreadyBulleti: Bool = false, startLoc: Int = 0) {
 		var isAlreadyBullet = isAlreadyBulleti
-		var loc:Int = 0
+		var loc:Int = startLoc
 		var chars:Array<Character>! = Array (text)
 		var appendingPoint = appendingStart
 		while loc < text.count {
@@ -189,19 +189,19 @@ class MarkDownRenderTextView: NSTextView {
 						if (chars[loc+1] == " ") {
 							isAlreadyCountingToChar = "\n"
 							appendingPoint += 1
-							parts.append(("", heading1Font, (false || isAlreadyBullet)))
+							parts.insert(("", heading1Font, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 1
 						} else if (chars.count > loc + 2 && chars[loc+1] == "#" && chars[loc+2] == " ") {
 							isAlreadyCountingToChar = "\n"
 							appendingPoint += 1
-							parts.append(("", heading2Font, (false || isAlreadyBullet)))
+							parts.insert(("", heading2Font, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 2
 						} else if (chars.count > loc + 3 && chars[loc+1] == "#" && chars[loc+2] == "#" && chars[loc+3] == " ") {
 							isAlreadyCountingToChar = "\n"
 							appendingPoint += 1
-							parts.append(("", heading3Font, (false || isAlreadyBullet)))
+							parts.insert(("", heading3Font, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 3
 						}
@@ -209,23 +209,22 @@ class MarkDownRenderTextView: NSTextView {
 				} else if (chars[loc] == "*") {
 					if (chars.count > loc + 1) {
 						if (chars[loc+1] == " ") {
-							isAlreadyCountingToChar = "\n"
+							//isAlreadyCountingToChar = "\n"
 							appendingPoint += 1
-							parts.append(("", basicFont, true))
-							
+							parts.insert(("\u{2022}", basicFont, true), at: appendingPoint)
 							loc += 0
 							isAlreadyBullet = false
 						} else if (chars.count > loc + 2 && chars[loc+1] == "*" && chars[loc+2] != " ") {
 							isAlreadyCountingToChar = "*"
 							isCountingToEndOfBold = 1
 							appendingPoint += 1
-							parts.append(("", boldFont, (false || isAlreadyBullet)))
+							parts.insert(("", boldFont, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 1
 						} else {
 							isAlreadyCountingToChar = "*"
 							appendingPoint += 1
-							parts.append(("", italicFont, (false || isAlreadyBullet)))
+							parts.insert(("", italicFont, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 0
 						}
@@ -236,7 +235,7 @@ class MarkDownRenderTextView: NSTextView {
 							isAlreadyCountingToChar = "~"
 							isCountingToEndOfBold = 3
 							appendingPoint += 1
-							parts.append(("", strikeFont, (false || isAlreadyBullet)))
+							parts.insert(("", strikeFont, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 1
 						}
@@ -244,29 +243,28 @@ class MarkDownRenderTextView: NSTextView {
 				} else if (chars[loc] == "`") {
 					isAlreadyCountingToChar = "`"
 					appendingPoint += 1
-					parts.append(("", codeFont, (false || isAlreadyBullet)))
+					parts.insert(("", codeFont, (false || isAlreadyBullet)), at: appendingPoint)
 					
 					loc += 0
 				} else if (chars[loc] == "_") {
 					if (chars.count > loc + 1) {
 						if (chars[loc+1] == " ") {
-							isAlreadyCountingToChar = "\n"
+							//isAlreadyCountingToChar = "\n"
 							appendingPoint += 1
-							parts.append(("", basicFont, true))
-							
+							parts.insert(("\u{2022} ", basicFont, true), at: appendingPoint)
 							loc += 0
 							isAlreadyBullet = false
 						} else if (chars.count > loc + 2 && chars[loc+1] == "_" && chars[loc+2] != " ") {
 							isAlreadyCountingToChar = "_"
 							isCountingToEndOfBold = 2
 							appendingPoint += 1
-							parts.append(("", boldFont, (false || isAlreadyBullet)))
+							parts.insert(("", boldFont, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 1
 						} else {
 							isAlreadyCountingToChar = "_"
 							appendingPoint += 1
-							parts.append(("", italicFont, (false || isAlreadyBullet)))
+							parts.insert(("", italicFont, (false || isAlreadyBullet)), at: appendingPoint)
 							
 							loc += 0
 						}
@@ -274,12 +272,12 @@ class MarkDownRenderTextView: NSTextView {
 				} else if (chars[loc] == "[") {
 					isAlreadyCountingToChar = "]"
 					appendingPoint += 1
-					parts.append(("", linkFont, (false || isAlreadyBullet)))
+					parts.insert(("", linkFont, (false || isAlreadyBullet)), at: appendingPoint)
 					
 					loc += 0
 				} else {
-					parts.append((String(chars[loc]), basicFont, (false || isAlreadyBullet)))
 					appendingPoint += 1
+					parts.insert((String(chars[loc]), basicFont, (false || isAlreadyBullet)), at: appendingPoint)
 				}
 			} else {
 				if (chars[loc] == isAlreadyCountingToChar) {
@@ -333,16 +331,18 @@ class MarkDownRenderTextView: NSTextView {
 				}
 			}
 			loc += 1
+			isAlreadyBullet = false
 		}
-		var locy = 0
-		for part in parts {
-			if ((part.0.count > 2) && part.2 && (part.0.contains("*") || part.0.contains("_"))) {
-				let pt = part
-				parts.remove (at:locy)
-				processParts(text: pt.0, appendingStart: locy - 3, isAlreadyBullet:true)
-			}
-			locy += 1
-		}
+//		var locy = 0
+//		for part in parts {
+//			if (part.2 && (part.0.contains("*") || part.0.contains("_"))) {
+//				let pt = part
+//				parts.remove (at:locy)
+//
+//				processParts(text: pt.0, appendingStart: locy - 1, isAlreadyBullet:true, startLoc: 0)
+//			}
+//			locy += 1
+//		}
 	}
 	
 	override func clicked(onLink link: Any, at charIndex: Int) {

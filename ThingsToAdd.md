@@ -1,11 +1,11 @@
 # Things to Add
 
-## MarkDown Tings
+## MarkDown Tings (DONE)
 
-~~Strike-throughs~~
-~~Basic links~~
-* Images
-~~Code snippets~~
+* ~~Strike-throughs~~
+* ~~Basic links~~
+* ~~Images~~
+* ~~Code snippets~~
 
 Additionally, make renderer search **recursively**.
 
@@ -46,5 +46,3 @@ Additionally, make renderer search **recursively**.
 * Tool key binding assignment
 * Project outline viewer
 * Line numbers
-
-[Image](/Users/JavaxProgrammer/Pictures/Planning.png)

@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553547724.480757"
+            timestampString = "553634268.446408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553547724.4810981"
+            timestampString = "553634268.446726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -266,12 +266,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553547724.481297"
+            timestampString = "553634268.446921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
-            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:)"
+            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:startLoc:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,12 +282,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553547724.481498"
+            timestampString = "553634268.4470921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:)"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:startLoc:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,12 +298,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
-            timestampString = "553547724.481674"
+            timestampString = "553634268.4472589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:)"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:startLoc:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quantum/MarkDown Rendering/MarkDownRenderTextView.swift"
+            timestampString = "553634268.447423"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "processParts(text:appendingStart:isAlreadyBullet:startLoc:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

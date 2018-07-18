@@ -19,11 +19,11 @@ So here's how it works basically.
 * And put those attributed strings into the text view.
 
 ## Specials
-
+ 
 * **bold** or __bold__
-*italic* or _italic_
+* *italic* or _italic_
 * Unordered
-* Lists
+_ Lists
 # Heading Level 1
 ## Headings Level 2
 and
