@@ -28,6 +28,24 @@
 			<string>$(PRODUCT_MODULE_NAME).Document</string>
 		</dict>
 		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>txt</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Plain Text File</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>????</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<integer>0</integer>
+			<key>NSDocumentClass</key>
+			<string>$(PRODUCT_MODULE_NAME).Document</string>
+		</dict>
+		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 			<key>LSTypeIsPackage</key>
