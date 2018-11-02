@@ -10,8 +10,8 @@ import Cocoa
 
 class EditorView: NSTextView {
 
-	let mainCursor: NSCursor = NSCursor(image: NSImage(named: NSImage.Name(rawValue: "MainCursor"))!, hotSpot: NSPoint (x: 43, y: 15))
-	let textCursor: NSCursor = NSCursor(image: NSImage(named: NSImage.Name(rawValue: "TextCursor"))!, hotSpot: NSPoint (x: 128, y: 128))
+	let mainCursor: NSCursor = NSCursor(image: NSImage(named: "MainCursor")!, hotSpot: NSPoint (x: 43, y: 15))
+	let textCursor: NSCursor = NSCursor(image: NSImage(named: "TextCursor")!, hotSpot: NSPoint (x: 128, y: 128))
 	
 	override func resetCursorRects() {
 		super.resetCursorRects()

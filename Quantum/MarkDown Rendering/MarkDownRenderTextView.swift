@@ -60,9 +60,9 @@ class MarkDownRenderTextView: NSTextView {
 		codeFont = NSFont (name: "Courier", size: 12)
 		linkFont = NSFont (name: "Helvetica Neue", size: 3)
 		
-		self.typingAttributes.updateValue(NSColor.lightGray, forKey: NSAttributedStringKey.foregroundColor)
-		self.typingAttributes.updateValue(NSColor.clear, forKey: NSAttributedStringKey.backgroundColor)
-		self.typingAttributes.removeValue(forKey: NSAttributedStringKey.font)
+		self.typingAttributes.updateValue(NSColor.lightGray, forKey: NSAttributedString.Key.foregroundColor)
+		self.typingAttributes.updateValue(NSColor.clear, forKey: NSAttributedString.Key.backgroundColor)
+		self.typingAttributes.removeValue(forKey: NSAttributedString.Key.font)
 		self.layoutManager?.defaultAttachmentScaling = .scaleProportionallyDown
 
         isPrepared = true
@@ -104,13 +104,13 @@ class MarkDownRenderTextView: NSTextView {
 				
 				if (part.2) {
 
-					let atString = NSAttributedString (string:part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor])
+					let atString = NSAttributedString (string:part.0, attributes: [NSAttributedString.Key.font:fnt!, NSAttributedString.Key.foregroundColor:NSColor.controlLightHighlightColor])
 
 					newString.append(atString)
 					prevEndLoc += 1
 				} else if ((fnt!.pointSize) < CGFloat(3)) {
 					fnt = basicFont
-					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.strikethroughStyle:1])
+					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedString.Key.font:fnt!, NSAttributedString.Key.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedString.Key.strikethroughStyle:1])
 					
 					newString.append(atString)
 					//prevEndLoc += 1
@@ -119,7 +119,7 @@ class MarkDownRenderTextView: NSTextView {
 						if !(["png","jpg","gif"].contains (URL(string: tmpLinks[linkIndex])?.pathExtension)) {
 							fnt = basicFont
 							
-								let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.link:tmpLinks[linkIndex], NSAttributedStringKey.underlineStyle:1])
+								let atString = NSAttributedString (string: part.0, attributes: [NSAttributedString.Key.font:fnt!, NSAttributedString.Key.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedString.Key.link:tmpLinks[linkIndex], NSAttributedString.Key.underlineStyle:1])
 						
 							newString.append(atString)
 								//prevEndLoc += 1
@@ -153,12 +153,12 @@ class MarkDownRenderTextView: NSTextView {
 					}
 					linkIndex += 1
 				} else if ((fnt!.fontName) == "Courier") {
-					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedStringKey.backgroundColor:NSColor.gray])
+					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedString.Key.font:fnt!, NSAttributedString.Key.foregroundColor:NSColor.controlLightHighlightColor, NSAttributedString.Key.backgroundColor:NSColor.gray])
 					
 					newString.append(atString)
 					//prevEndLoc += 1
 				} else {
-					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedStringKey.font:fnt!, NSAttributedStringKey.foregroundColor:NSColor.controlLightHighlightColor])
+					let atString = NSAttributedString (string: part.0, attributes: [NSAttributedString.Key.font:fnt!, NSAttributedString.Key.foregroundColor:NSColor.controlLightHighlightColor])
 				
 					newString.append(atString)
 				}

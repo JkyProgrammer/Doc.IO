@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-let sstoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+let sstoryboard = NSStoryboard(name: "Main", bundle: nil)
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate, NSWindowDelegate {
 	override func viewDidLoad() {
@@ -39,13 +39,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 
 	
 	override func viewDidAppear() {
-        NSAppearance.current = NSAppearance (named: NSAppearance.Name.vibrantDark)
-        
+        //NSApp.appearance = NSAppearance (named: NSAppearance.Name.vibrantDark)
+		//NSColor.controlAccentColor
+		
 		editorView.delegate = self
         
-        editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedStringKey.font)
+        editorView.typingAttributes.updateValue(NSFont (name: "Courier", size: 16) as Any, forKey: NSAttributedString.Key.font)
         
-        editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedStringKey.foregroundColor)
+        editorView.typingAttributes.updateValue(NSColor.controlTextColor, forKey: NSAttributedString.Key.foregroundColor)
         
         editorView.isAutomaticQuoteSubstitutionEnabled = false
         editorView.isAutomaticLinkDetectionEnabled = false
@@ -159,11 +160,11 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 	}
 	
 	@IBAction func runBuildScriptFromTouchBar(_ sender: Any) {
-		self.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "callBuildScript"), sender: self)
+		self.performSegue(withIdentifier: "callBuildScript", sender: self)
 	}
 	
 	@IBAction func runExecuteScriptFromTouchBar(_ sender: Any) {
-		self.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "execCommand"), sender: self)
+		self.performSegue(withIdentifier: "execCommand", sender: self)
 	}
 	
 	@IBOutlet var lineLabel: NSTextField!
@@ -187,7 +188,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 }
             } else {
                 livePreviewWindow = NSPanel (contentRect: NSRect (x: Int((self.view.window?.frame.maxX)!)-500, y: Int((self.view.window?.frame.maxY)!)-300, width: 500, height: 300), styleMask: NSWindow.StyleMask.borderless, backing: .buffered, defer: false)
-                let vc = NSStoryboard (name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle.main).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MarkDownRenderViewController")) as! MarkDownRenderViewController
+                let vc = NSStoryboard (name: "Main", bundle: Bundle.main).instantiateController(withIdentifier: "MarkDownRenderViewController") as! MarkDownRenderViewController
                 livePreviewWindow?.contentViewController = vc
                 livePreviewWindow?.level = .floating
 				livePreviewWindow?.styleMask = NSWindow.StyleMask(rawValue: NSWindow.StyleMask.RawValue(UInt16((livePreviewWindow?.styleMask)!.rawValue) | UInt16(NSWindow.StyleMask.resizable.rawValue)))

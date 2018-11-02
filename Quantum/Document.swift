@@ -21,8 +21,8 @@ class Document: NSDocument {
 
 	override func makeWindowControllers() {
 		// Returns the Storyboard that contains your Document window.
-		let windowController = sstoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
-		((windowController.contentViewController as! ViewController).editorView.string) = textValue
+		let windowController = sstoryboard.instantiateController(withIdentifier: "Document Window Controller") as! NSWindowController
+		((windowController.contentViewController as! ViewController).editorView).string = textValue
 		self.addWindowController(windowController)
 	}
 
